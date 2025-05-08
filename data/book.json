@@ -1,0 +1,55 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "Səfillər",
+      "author": "Viktor Hüqo",
+      "price": 12.5,
+      "category": "Roman",
+      "language": "Azərbaycan",
+      "pages": 480,
+      "cover": "https://cdn.timas.com.tr/urun/sefiller-9786054985326.jpg",
+      "published": "2020-04-15",
+      "content": "Səfillər — 19-cu əsr Fransasında baş verən hadisələri təsvir edən, ədalət, sevgi və insanlığa dair möhtəşəm bir romandır."
+    },
+    {
+      "id": "2",
+      "title": "Cinayət və Cəza",
+      "author": "Fyodor Dostoyevski",
+      "price": 15,
+      "category": "Klassik",
+      "language": "Azərbaycan",
+      "pages": 520,
+      "cover": "https://www.qanun.az/images/news/compressed/2024-03-16-11-56-211710575781.jpg",
+      "published": "2019-09-10",
+      "content": "Bu əsərdə Rodion Raskolnikovun psixoloji böhranı və cəmiyyətlə üzləşməsi təsvir olunur."
+    },
+    {
+      "id": "4",
+      "title": "Harry Potter və Fəlsəfə Daşı",
+      "author": "J.K. Rowling",
+      "price": 13.99,
+      "category": "Fantastika",
+      "language": "Azərbaycan",
+      "pages": 340,
+      "cover": "https://www.qanun.az/images/news/compressed/2024-11-25-11-39-041732520344.jpg",
+      "published": "2022-08-01",
+      "content": "Sehrli bir məktəbdə təhsil alan Harry Potterin sehrli dünyaya ilk addımlarını izah edən məşhur fantastik roman."
+    },
+    {
+      "id": "3",
+      "title": "Yüz ilin tənhalığı",
+      "price": "10.9",
+      "author": "Qabriel Qarsia Markes",
+      "language": "Azərbaycan",
+      "pages": "400",
+      "cover": "https://www.qanun.az/images/news/compressed/2025-02-04-11-36-381738654598.jpg",
+      "published": "2020-06-05",
+      "content": "Bu roman Buendia ailəsinin bir əsrlik hekayəsini və tənha Macondo şəhərindəki simvolik həyatlarını təsvir edir.</p>",
+      "category": "Magik Realizm",
+      "like": 0,
+      "dislike": 0,
+      "view": 0
+    }
+  ]
+}

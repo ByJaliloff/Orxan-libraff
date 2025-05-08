@@ -1,0 +1,53 @@
+.relative-container {
+    position: relative;
+    z-index: 50; /* Yuxarıda izah etdiyim kimi, digər elementlərdən üstün olmalıdır */
+    cursor: pointer; /* Div-ə kliklənə bilən xüsusiyyət əlavə edirik */
+  }
+  
+  #toggleBtn:hover {
+    background-color: #ef3340; /* Hover effekti ilə fonu dəyişir */
+  }
+  
+  #overlay {
+    z-index: 40;
+    display: block;
+    visibility: hidden;
+  }
+  
+  #overlay.hidden {
+    visibility: hidden;
+  }
+  
+  #overlay:not(.hidden) {
+    visibility: visible;
+  }
+.menu li{
+    padding: 8px 5px 8px 20px;
+  }
+.sec-menu li{
+    padding: 5px 0 5px 20px;
+}
+.search-wrapper {
+    width: 600px;
+  }
+  
+  
+  @media (max-width: 1275px) {
+    .search-wrapper {
+      width: 400px;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 1110px) {
+    .search-wrapper {
+        width: 300px;
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 976px) {
+    .search-wrapper {
+        width: 200px;
+        max-width: 200px;
+    }
+  }

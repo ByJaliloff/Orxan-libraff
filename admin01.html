@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.tiny.cloud/1/ethk104ryjxiztyy477myulkpu4lte2nki6uxh6ocr3p6380/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            plugins: [
+                'code',
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons',
+                'image', 'link', 'lists', 'media', 'searchreplace',
+                'table', 'visualblocks', 'wordcount'],
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+</head>
+
+<body class="bg-[#2f2f2f]">
+    <div class="container mx-auto py-[5vh]">
+        <div id="crud-modal" tabindex="-1" aria-hidden="true"
+            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-[700px] max-h-full">
+                <div class="relative bg-[#1f1f1f] rounded-lg shadow-sm dark:bg-gray-800">
+                    <div
+                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                            Post Book
+                        </h3>
+                        <button type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-toggle="crud-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+
+                    <div id="form" class="p-4 md:p-5">
+                        <div class="grid gap-4 mb-4 grid-cols-2">
+                            <div class="col-span-2">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Book
+                                    Title</label>
+                                <input type="text" name="name" id="name"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Type book title" required="">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price
+                                </label>
+                                <input type="number" name="name" id="name"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Type book price" required="">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author
+                                </label>
+                                <input type="text" name="name" id="name"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Type book author" required="">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="language" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
+                                <select id="language" name="language" 
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="">Select Language</option>
+                                    <option value="ENG">English</option>
+                                    <option value="AZE">Azerbaijani</option>
+                                    <option value="RUS">Russian</option>
+                                    <option value="TUR">Turkish</option>
+                                </select>
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pages
+                                </label>
+                                <input type="number" name="name" id="name"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Type book pages" required="">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Book
+                                    Cover</label>
+                                <input type="url" name="name" id="name"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Enter the book cover URL" required="">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="category"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Əsas
+                                    Kateqoriya</label>
+                                <select id="category"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                                    <option value="">Seçin</option>
+                                    <option value="Kitab">Kitab</option>
+                                    <option value="Elektronika & aksessuar">Elektronika & aksessuar</option>
+                                    <option value="Oyuncaqlar & Oyunlar">Oyuncaqlar & Oyunlar</option>
+                                    <option value="Dəftərxana">Dəftərxana</option>
+                                    <option value="Hədiyyələr & Hobbi">Hədiyyələr & Hobbi</option>
+                                </select>
+                            </div>
+
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="subCategory" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alt Kateqoriya</label>
+                                <select id="subCategory" class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                                    <option value="">Əvvəl əsas kateqoriyanı seçin</option>
+                                    <option value="Bədii ədəbiyyat">Bədii ədəbiyyat</option>
+                                    <option value="Qeyri-bədii ədəbiyyat">Qeyri-bədii ədəbiyyat</option>
+                                    <option value="Bədii uşaq ədəbiyyat">Bədii uşaq ədəbiyyat</option>
+                                    <option value="Qeyri-bədii uşaq ədəbiyyat">Qeyri-bədii uşaq ədəbiyyat</option>
+                                </select>
+                            </div>
+
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="subSubCategory"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alt Alt
+                                    Kateqoriya</label>
+                                <select id="subSubCategory"
+                                    class="bg-gray-700 border border-gray-500 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white">
+                                    <option value="">Əvvəl alt kateqoriyanı seçin</option>
+                                    <option value="Antologiya">Antologiya</option>
+                                    <option value="Bioqrafiyaç avtobioqrafiya & Xatirə">Bioqrafiyaç avtobioqrafiya &
+                                        Xatirə</option>
+                                    <option value="Detektiv">Detektiv</option>
+                                    <option value="Elmi-fantastika & Fantaziya">Elmi-fantastika & Fantaziya</option>
+                                    <option value="Fəlsəfə">Fəlsəfə</option>
+                                    <option value="Hekayələr & Oçerklər">Hekayələr & Oçerklər</option>
+                                    <option value="Kino və teatr">Kino və teatr</option>
+                                    <option value="Klassik poemalar">Klassik poemalar</option>
+                                    <option value="Klassiklər">Klassiklər</option>
+                                    <option value="Komiks">Komiks</option>
+                                    <option value="Macəra">Macəra</option>
+                                    <option value="Mifologiya">Mifologiya</option>
+                                    <option value="Nağıllar">Nağıllar</option>
+                                    <option value="Poemalar">Poemalar</option>
+                                    <option value="Psixologiya">Psixologiya</option>
+                                    <option value="Romanlar & Novellalar">Romanlar & Novellalar</option>
+                                    <option value="Satira">Satira</option>
+                                    <option value="Tarix, hüquq & Siyasi">Tarix, hüquq & Siyasi</option>
+                                    <option value="Tarix roman">Tarix roman</option>
+                                    <option value="Triller, mistika & Qorxu">Triller, mistika & Qorxu</option>
+                                    <option value="Təhsil, mənbə & Dil">Təhsil, mənbə & Dil</option>
+                                    <option value="Ailə">Ailə</option>
+                                    <option value="Akademik">Akademik</option>
+                                    <option value="Aşpazlıq">Aşpazlıq</option>
+                                    <option value="Astromoniya">Astromoniya</option>
+                                    <option value="Bağbanlıq">Bağbanlıq</option>
+                                    <option value="Detektiv">Detektiv</option>
+                                    <option value="Dini">Dini</option>
+                                    <option value="Dəb">Dəb</option>
+                                    <option value="Elm">Elm</option>
+                                    <option value="Ezoterika">Ezoterika</option>
+                                    <option value="Fəaliyyətlər">Fəaliyyətlər</option>
+                                    <option value="Fəlsəfə">Fəlsəfə</option>
+                                    <option value="Hekayələr & Esselər">Hekayələr & Esselər</option>
+                                    <option value="Heyvanlar">Heyvanlar</option>
+                                    <option value="Jurnallar & Qəzetlər">Jurnallar & Qəzetlər</option>
+                                    <option value="Kino və teatr">Kino və teatr</option>
+                                    <option value="Klassiklər">Klassiklər</option>
+                                    <option value="Komiks">Komiks</option>
+                                    <option value="Komputer elmləri">Komputer elmləri</option>
+                                    <option value="Mifologiya">Mifologiya</option>
+                                    <option value="Musiqi">Musiqi</option>
+                                    <option value="Poemalar">Poemalar</option>
+                                    <option value="Psixologiya">Psixologiya</option>
+                                    <option value="Publisistika">Publisistika</option>
+                                    <option value="Qeyri-bədii">Qeyri-bədii</option>
+                                    <option value="Regional maraqlar">Regional maraqlar</option>
+                                    <option value="Romanlar & Novellalar">Romanlar & Novellalar</option>
+                                    <option value="Sağlamlıq, tibbi & Idman">Sağlamlıq, tibbi & Idman</option>
+                                    <option value="Sitatlar & Aforizmlər">Sitatlar & Aforizmlər</option>
+                                    <option value="Sosiologiya">Sosiologiya</option>
+                                    <option value="Şəxsi inkisaf">Şəxsi inkisaf</option>
+                                    <option value="Səyahət & Məkanlar">Səyahət & Məkanlar</option>
+                                    <option value="Tarix, hüquq & Siyasi">Tarix, hüquq & Siyasi</option>
+                                    <option value="Tarix roman">Tarix roman</option>
+                                    <option value="Təhsil, mənbə & Dil">Təhsil, mənbə & Dil</option>
+                                    <option value="Xəritələr">Xəritələr</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col-span-2">
+                                <label for="description"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Book
+                                    Content</label>
+                                <textarea id="mytextarea">Hello, World!</textarea>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button onclick="handlePost()" data-modal-toggle="crud-modal"
+                                class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Add new book
+                            </button>
+                            <button onclick="handleEdit()"
+                                class="text-white inline-flex items-center bg-yellow-600 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
+                                Edit book
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+            class="p-[10px_20px] bg-blue-700 hover:bg-blue-800 cursor-pointer my-[10px] text-[white]">+ Add
+            Books</button>
+
+        <div class="mx-auto relative overflow-x-auto">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-800 dark:bg-gray-900 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Book Title</th>
+                        <th scope="col" class="px-6 py-3">Price</th>
+                        <th scope="col" class="px-6 py-3">Author</th>
+                        <th scope="col" class="px-6 py-3">Language</th>
+                        <th scope="col" class="px-6 py-3">Pages</th>
+                        <th scope="col" class="px-6 py-3">Content</th>
+                        <th scope="col" class="px-6 py-3">Category</th>
+                        <th scope="col" class="px-6 py-3">Like, Dislike, View</th>
+                        <th scope="col" class="px-6 py-3">Img</th>
+                        <th scope="col" class="px-6 py-3">CRUD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script src="js/admin.js" type="module"></script>
+</body>
+
+</html>
