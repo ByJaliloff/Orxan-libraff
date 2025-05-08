@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-
 <body>
-  <header class="w-full">
+      <header class="w-full">
     <div class="max-w-[1500px] mx-auto flex items-center justify-between px-4 gap-2 h-[120px]">
       <div class="flex items-center gap-4">
         <a href="index.html"><img src="img/logo_b1x3-5c.png" alt="LIBRAFF Logo" class="w-[175px] h-full" /></a>
@@ -297,7 +295,7 @@
         </ul>
       </div>
       <div class="flex gap-4">
-        <ul class="flex gap-4 text-[#334155]">
+        <ul class="flex gap-4">
           <li><a href="#">Ödəniş və çatdırılma</a></li>
           <li><a href="#">Loyallıq Kartı</a></li>
           <li><a href="#">FAQ</a></li>
@@ -307,34 +305,10 @@
     </div>
     <script src="js/header.js"></script>
   </header>
-  <div class="relative overflow-hidden w-full max-w-[full] mx-auto">
-    <div id="slider-track" class="flex transition-transform duration-700 ease-in-out w-full h-[550px]">
-      <div class="flex gap-0 h-[500px]">
-        <img src="img/01-web-3840x1000.webp" class=" w-full object-cover flex-shrink-0" />
-        <img src="img/3-web-3840x1000_7h5s-r9.webp" class=" w-full object-cover flex-shrink-0" />
-        <img src="img/Çingiz-Abdullayev---İmza-saatı-web-.webp" class=" w-full object-cover flex-shrink-0" />
-        <img src="img/Hero-banner-desktop-20_-discount.webp" class="w-full object-cover flex-shrink-0" />
-        <img src="img/martin-iden-desktop.webp" class="w-full object-cover flex-shrink-0" />
-      </div>
-    </div>
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
-      <button class="w-2 h-2 rounded-full bg-gray-400 hover:bg-red-500 transition-all" data-index="0"></button>
-      <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-red-500 transition-all" data-index="1"></button>
-      <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-red-500 transition-all" data-index="2"></button>
-      <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-red-500 transition-all" data-index="3"></button>
-      <button class="w-2 h-2 rounded-full bg-gray-300 hover:bg-red-500 transition-all" data-index="4"></button>
-    </div>
+  <div class="max-w-[1500px] mx-auto ">
+    <div class="pt-[10px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]" id="category-way"></div>
+    <div id="detail-container"></div>
   </div>
-  <div class="max-w-[1500px] mx-auto px-4 py-[50px]">
-    <h2 class="text-[30px] text-[#0f172a]"><span class="text-[#ee2d39] mr-[10px]">Aprelin</span>bestsellerləri</h2>
-    <div id="news-container"
-    class="grid gap-2 justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 max-w-[1500px] mx-auto ">
-    </div>
-  </div>
-  <script src="js/index.js" type="module"></script>
-  <script src="js/slide.js"></script>
-
-
+  <script src="js/details.js" type="module"></script>
 </body>
-
 </html>
