@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -297,7 +297,7 @@
         </ul>
       </div>
       <div class="flex gap-4">
-        <ul class="flex gap-4">
+        <ul class="flex gap-4 text-[#334155]">
           <li><a href="#">Ödəniş və çatdırılma</a></li>
           <li><a href="#">Loyallıq Kartı</a></li>
           <li><a href="#">FAQ</a></li>
@@ -307,51 +307,8 @@
     </div>
     <script src="js/header.js"></script>
   </header>
-  <div class="max-w-[1500px] mx-auto ">
-    <div class="pt-[10px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]" id="category-way"></div>
-    <div id="detail-container"></div>
-    <div id="cartModal" class="fixed inset-0 backdrop-blur-md bg-gray-200/60 z-50 hidden items-center justify-center">
-      <div class="bg-white rounded-xl w-[600px] max-w-full p-6 relative">
-        <div class="flex justify-between items-center border-b pb-2">
-          <h2 class="text-lg font-semibold">Məhsul səbətə əlavə edilmişdir.</h2>
-          <button onclick="closeModal()" class="text-gray-500 hover:text-black text-xl">&times;</button>
-        </div>
-
-        <div class="flex items-center gap-4 py-4 border-b">
-          <img id="bookImage" src="kitabin-sekli.jpg" alt="Kitab" class="w-[50px] h-[70px] object-cover" />
-          <div class="flex justify-between w-full text-[15px]">
-            <span class="text-red-600" id="bookTitle"></span>
-            <span id="bookPrice"></span>
-          </div>
-        </div>
-
-        <div class="flex justify-between items-center pt-4">
-          <p class="text-gray-600">Səbətdə 1 ədəd məhsul var</p>
-          <p class="font-semibold" id="initialPrice">Səbətin ilkin dəyəri 21.36 ₼</p>
-        </div>
-
-        <div class="mt-4 flex justify-between gap-4">
-          <button onclick="closeModal()"
-            class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">Alış-verişə davam
-            et</button>
-          <button id="addToCartBtn" class="bg-[#ef3340] text-white px-6 py-2 rounded-full hover:bg-red-700 transition">Səbət</button>
-        </div>
-      </div>
-    </div>
-    <script>
-      function openModal() {
-        document.getElementById("cartModal").classList.remove("hidden");
-        document.getElementById("cartModal").classList.add("flex");
-      }
-
-      function closeModal() {
-        document.getElementById("cartModal").classList.add("hidden");
-        document.getElementById("cartModal").classList.remove("flex");
-      }
-
-    </script>
-  </div>
-  <script src="js/details.js" type="module"></script>
+  <div id="wishlist-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6"></div>
+  <script src="js/wishlist.js" type="module"></script>
 </body>
 
 </html>

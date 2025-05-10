@@ -15,6 +15,12 @@ async function renderDetail() {
     return;
   }
 
+document.getElementById("bookTitle").textContent = book.title;
+document.getElementById("bookPrice").textContent = `${book.price} ₼`;
+document.getElementById("bookImage").src = book.cover;
+document.getElementById("initialPrice").textContent = `Səbətin ilkin dəyəri ${book.price} ₼`;
+
+
   categoryWay.innerHTML = `
     <div class="px-4 text-[14px] text-[#767676]">
       <span>Əsas səhifə</span>
@@ -51,7 +57,7 @@ async function renderDetail() {
         </div>
       </div>
 
-      <button class="bg-[#ef3340] w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
+      <button onclick="openModal()" class="bg-[#ef3340] w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
            <i class="fa-solid fa-bag-shopping"></i> Səbətə əlavə et
       </button>
 
@@ -77,8 +83,10 @@ async function renderDetail() {
       </div>
     </div>
   </div>
+  
 `;
 
 }
+
 
 renderDetail();

@@ -1,7 +1,7 @@
 
 async function getAllBooks() {
     try {
-     const res = await fetch('https://libraff-data.onrender.com/books/')
+     const res = await fetch('https://681da568f74de1d219b078d2.mockapi.io/libraff-data')
      if(!res.ok) {
          throw new Error(`${res.status} fetchde xeta bas verdi`)
      }
@@ -15,7 +15,7 @@ async function getAllBooks() {
 
  async function deleteBookById(id) {
     try {
-     const res = await fetch(`https://libraff-data.onrender.com/books/${id}`, {
+     const res = await fetch(`https://681da568f74de1d219b078d2.mockapi.io/libraff-data/${id}`, {
         method: 'DELETE'
      })
      if(!res.ok) {
@@ -31,7 +31,7 @@ async function getAllBooks() {
 
  async function createBook(book) {
     try {
-        const res = await fetch('https://libraff-data.onrender.com/books', {
+        const res = await fetch('https://681da568f74de1d219b078d2.mockapi.io/libraff-data', {
             method: 'POST',
             headers: {
                 "Content-type": 'application/json'
@@ -52,7 +52,7 @@ async function getAllBooks() {
 
  async function editBook(book, id) {
     try {
-        const res = await fetch(`https://libraff-data.onrender.com/books/${id}`, {
+        const res = await fetch(`https://681da568f74de1d219b078d2.mockapi.io/libraff-data/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
