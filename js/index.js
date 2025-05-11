@@ -16,7 +16,7 @@ function renderCards() {
         const card = `
         <div class="bg-white border border-transparent rounded-2xl w-full px-3 py-3 hover:shadow-[0px_4px_20px_0px_rgba(0,0,0,0.2)] transition-all duration-300 relative group">
             <a href="details.html?id=${book.id}" onclick="incrementView(${book.id})">
-                <img class="w-full h-[407px] object-cover rounded-t-lg" src="${book.cover}" alt="" />
+                <img class="w-full h-[340px] object-cover rounded-t-lg" src="${book.cover}" alt="" />
             </a>
             <a href="wishlist.html"
               class="absolute top-5 right-5 text-2xl text-white opacity-0 group-hover:opacity-100 transition-all duration-300" onclick='addToWishlist(${JSON.stringify(book)})'>

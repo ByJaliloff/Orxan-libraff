@@ -48,7 +48,7 @@ toggleBtn.addEventListener("click", () => {
     dropdownMenu.classList.add("opacity-0", "scale-95");
     setTimeout(() => {
       dropdownMenu.classList.add("hidden");
-    }, 300); 
+    }, 300);
   }
 
   icon.textContent = isHidden ? "✕" : "☰";
@@ -56,22 +56,76 @@ toggleBtn.addEventListener("click", () => {
   overlay.classList.toggle("hidden", !isHidden);
 });
 
-
-document.querySelectorAll(".hover-trigger").forEach(trigger => {
+document.querySelectorAll(".hover-trigger").forEach((trigger) => {
   trigger.addEventListener("mouseenter", function () {
-    // Əgər hover edən element 2-ci sütundandırsa, davam et
     if (this.closest(".column-2")) {
       const targetId = this.id;
-      const targetContent = document.getElementById(targetId + '-content');
+      const targetContent = document.getElementById(targetId + "-content");
 
-      // Bütün 3–6-cı sütun contentlərini gizlət
       const allContent = document.querySelectorAll("[id$='-content']");
-      allContent.forEach(content => content.classList.add("hidden"));
+      allContent.forEach((content) => content.classList.add("hidden"));
 
-      // Uyğun olan contenti göstər
       if (targetContent) {
         targetContent.classList.remove("hidden");
       }
     }
   });
 });
+
+const toggleButton = document.getElementById("menu-toggle");
+const closeButton = document.getElementById("menu-close");
+const sidebar = document.getElementById("sidebar");
+const overley = document.getElementById("overley");
+
+toggleButton.addEventListener("click", () => {
+  sidebar.classList.remove("-translate-x-full");
+  overley.classList.remove("hidden");
+});
+
+closeButton.addEventListener("click", () => {
+  sidebar.classList.add("-translate-x-full");
+  overley.classList.add("hidden");
+});
+
+overley.addEventListener("click", () => {
+  sidebar.classList.add("-translate-x-full");
+  overley.classList.add("hidden");
+});
+
+function toggleMainLinks() {
+  const mainLinks = document.getElementById("main-links");
+  const toggleIcon = document.getElementById("main-links-toggle");
+
+  if (mainLinks.classList.contains("hidden")) {
+    mainLinks.classList.remove("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-minus"></i>';
+  } else {
+    mainLinks.classList.add("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
+  }
+}
+
+function toggleCatalogLinks() {
+  const catalogLinks = document.getElementById("catalog-links");
+  const toggleIcon = document.getElementById("catalog-toggle");
+
+  if (catalogLinks.classList.contains("hidden")) {
+    catalogLinks.classList.remove("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-minus"></i>';
+  } else {
+    catalogLinks.classList.add("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
+  }
+}
+function toggleOtherLinks() {
+  const otherLinks = document.getElementById("other-links");
+  const toggleIcon = document.getElementById("other-links-toggle");
+
+  if (otherLinks.classList.contains("hidden")) {
+    otherLinks.classList.remove("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-minus"></i>';
+  } else {
+    otherLinks.classList.add("hidden");
+    toggleIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
+  }
+}

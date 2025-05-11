@@ -13,297 +13,399 @@
 </head>
 
 <body>
-  <header class="w-full">
-    <div class="max-w-[1500px] mx-auto flex items-center justify-between px-4 gap-2 h-[120px]">
-      <div class="flex items-center gap-4">
-        <a href="index.html"><img src="img/logo_b1x3-5c.png" alt="LIBRAFF Logo" class="w-[175px] h-full" /></a>
-      </div>
-      <div class="flex items-center justify-between gap-4">
-        <div class="relative-container">
-          <div id="toggleBtn"
-            class="flex items-center gap-2 bg-[#ef3340] text-white px-7 py-2 rounded-full text-[16px] font-bold cursor-pointer">
-            <span id="icon" class="text-lg">☰</span> Kataloq
+<header class="w-full">
+    <div class="hidden lg:block">
+      <div class="max-w-[1500px] mx-auto flex items-center justify-between px-4 gap-2 h-[120px]">
+        <div class="flex items-center gap-4">
+          <a href="index.html"><img src="img/logo_b1x3-5c.png" alt="LIBRAFF Logo" class="w-[175px] h-full" /></a>
+        </div>
+        <div class="flex items-center justify-between gap-4">
+          <div class="relative-container">
+            <div id="toggleBtn"
+              class="flex items-center gap-2 bg-[#ef3340] text-white px-7 py-2 rounded-full text-[16px] font-bold cursor-pointer">
+              <span id="icon" class="text-lg">☰</span> Kataloq
+            </div>
+            <i id="caretIcon"
+              class="fa-solid fa-caret-up text-white text-3xl absolute left-1/2 -translate-x-1/2 top-full -mt-1.5"
+              style="display: none;"></i>
           </div>
-          <i id="caretIcon"
-            class="fa-solid fa-caret-up text-white text-3xl absolute left-1/2 -translate-x-1/2 top-full -mt-1.5"
-            style="display: none;"></i>
+          <div class="relative search-wrapper">
+            <input id="searchInput" type="text" placeholder="Search"
+              class="w-full border-2 border-[#cbd5e1] rounded-full px-4 py-2 pl-5 pr-10 focus:outline-none  focus:ring-gray-500 h-[44px]" />
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"><i
+                class="fa-solid fa-magnifying-glass"></i></span>
+          </div>
         </div>
-        <div class="relative search-wrapper">
-          <input id="searchInput" type="text" placeholder="Search"
-            class="w-full border-2 border-[#cbd5e1] rounded-full px-4 py-2 pl-5 pr-10 focus:outline-none  focus:ring-gray-500 h-[44px]" />
-          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"><i
-              class="fa-solid fa-magnifying-glass"></i></span>
+        <div class="flex items-center gap-4 text-[16px]">
+          <div class="flex items-center gap-1 cursor-pointer">AZ <i class="fa-solid fa-chevron-down"></i></div>
+          <div
+            class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full cursor-pointer text-[#1e293b] font-bold">
+            <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
+              class="fa-solid fa-chevron-down"></i>
+          </div>
+          <span class="text-xl cursor-pointer"><i class="fa-regular fa-heart text-2xl cursor-pointer"></i></span>
+          <span class="text-xl cursor-pointer"><i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i></span>
         </div>
       </div>
-      <div class="flex items-center gap-4 text-[16px]">
-        <div class="flex items-center gap-1 cursor-pointer">AZ <i class="fa-solid fa-chevron-down"></i></div>
-        <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full cursor-pointer text-[#1e293b] font-bold">
-          <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
-            class="fa-solid fa-chevron-down"></i>
+
+      <div id="overlay" class="fixed inset-0 bg-gray-800 opacity-50 hidden"></div>
+
+      <div id="dropdownMenu"
+        class="absolute top-[120px] left-1/2 transform -translate-x-1/2 z-50 hidden bg-white shadow-lg rounded-lg pt-2 w-full max-w-[1500px] h-[550px] opacity-0 scale-95 transition-all duration-300 ease-out">
+        <div class="grid grid-cols-6 gap-4 text-[14px]">
+          <div class="pr-4 border-r border-gray-300 column-1">
+            <ul class="menu">
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
+                id="kitab">
+                Kitab
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Bədii ədəbiyyat
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Qeyri-bədii ədəbiyyat
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Elektronika & aksesuar
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Oyuncaqlar & Oyunlar
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Dəftərxana
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
+                Hədiyyələr & Hobbi
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+            </ul>
+          </div>
+          <div class="column-2">
+            <ul class="menu">
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
+                id="bedii-edeb">
+                Bədii Ədəbiyyat
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
+                id="qeyri-bedii">
+                Qeyri-bədii ədəbiyyat
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
+                id="bedii-usaq">
+                Bədii uşaq ədəbiyyatı
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+              <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
+                id="qeyri-bedii-usaq">
+                Qeyri-bədii uşaq ədəbiyyatı
+                <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
+                    class="fa-solid fa-chevron-right"></i></span>
+              </li>
+            </ul>
+          </div>
+          <div id="bedii-edeb-content" class="col-span-4 grid grid-cols-4 gap-4">
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Antologiya</li>
+                <li>Bioqrafiyaç avtobioqrafiya & Xatirə</li>
+                <li>Detektiv</li>
+                <li>Elmi-fantastika & Fantaziya</li>
+                <li>Fəlsəfə</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Hekayələr & Oçerklər</li>
+                <li>Kino və teatr</li>
+                <li>Klassik poemalar</li>
+                <li>Klassiklər</li>
+                <li>Komiks</li>
+                <li>Macəra</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Mifologiya</li>
+                <li>Nağıllar</li>
+                <li>Poemalar</li>
+                <li>Psixologiya</li>
+                <li>Romanlar & Novellalar</li>
+                <li>Satira</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Tarix, hüquq & Siyasi</li>
+                <li>Tarix roman</li>
+                <li>Triller, mistika & Qorxu</li>
+                <li>Təhsil, mənbə & Dil</li>
+              </ul>
+            </div>
+          </div>
+          <div id="qeyri-bedii-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Ailə</li>
+                <li>Akademik</li>
+                <li>Aşpazlıq</li>
+                <li>Astromoniya</li>
+                <li>Bağbanlıq</li>
+                <li>Detektiv</li>
+                <li>Dini</li>
+                <li>Dəb</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Elm</li>
+                <li>Ezoterika</li>
+                <li>Fəaliyyətlər</li>
+                <li>Fəlsəfə</li>
+                <li>Hekayələr & Esselər</li>
+                <li>Heyvanlar</li>
+                <li>Jurnallar & Qəzetlər</li>
+                <li>Kino və teatr</li>
+                <li>Klassiklər</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Komiks</li>
+                <li>Komputer elmləri</li>
+                <li>Mifologiya</li>
+                <li>Musiqi</li>
+                <li>Poemalar</li>
+                <li>Psixologiya</li>
+                <li>Publisistika</li>
+                <li>Qeyri-bədii</li>
+                <li>Regional maraqlar</li>
+                <li>Romanlar & Novellalar</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Sağlamlıq, tibbi & Idman</li>
+                <li>Sitatlar & Aforizmlər</li>
+                <li>Sosiologiya</li>
+                <li>Şəxsi inkisaf</li>
+                <li>Səyahət & Məkanlar</li>
+                <li>Tarix, hüquq & Siyasi</li>
+                <li>Tarix roman</li>
+                <li>Təhsil, mənbə & Dil</li>
+                <li>Xəritələr</li>
+              </ul>
+            </div>
+          </div>
+          <div id="bedii-usaq-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>3D kitab</li>
+                <li>Dedektiv</li>
+                <li>Heyvanlar</li>
+                <li>Elmi-fantastika & Fantaziya</li>
+                <li>Hekayələr & Oçerklər</li>
+                <li>Klassik Poemalar</li>
+                <li>Klassiklər</li>
+                <li>Komiks</li>
+                <li>Macəra</li>
+                <li>Nağıllar</li>
+                <li>Oyuncaq kitablar</li>
+                <li>Poemalar</li>
+                <li>Romanlar & Novellalar</li>
+                <li>Satira</li>
+                <li>Tarix roman</li>
+                <li>Triller, mistika & Qorxu</li>
+                <li>Təhsil, mənbə & Dil</li>
+              </ul>
+            </div>
+          </div>
+          <div id="qeyri-bedii-usaq-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>3D kitab</li>
+                <li>Dedektiv</li>
+                <li>Heyvanlar</li>
+                <li>Elmi-fantastika & Fantaziya</li>
+                <li>Hekayələr & Oçerklər</li>
+                <li>Klassik Poemalar</li>
+                <li>Klassiklər</li>
+                <li>Komiks</li>
+                <li>Macəra</li>
+                <li>Nağıllar</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Sosiologiya</li>
+                <li>Şəxsi inkisaf</li>
+                <li>Səyahət & Məkanlar</li>
+                <li>Tarix, hüquq & Siyasi</li>
+                <li>Tarix roman</li>
+                <li>Təhsil, mənbə & Dil</li>
+                <li>Xəritələr</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Ailə</li>
+                <li>Akademik</li>
+                <li>Aşpazlıq</li>
+                <li>Astromoniya</li>
+                <li>Bağbanlıq</li>
+                <li>Detektiv</li>
+                <li>Dini</li>
+                <li>Dəb</li>
+              </ul>
+            </div>
+            <div>
+              <ul class="sec-menu text-[#0f172abf]">
+                <li>Kino və teatr</li>
+                <li>Klassik poemalar</li>
+                <li>Klassiklər</li>
+                <li>Antologiya</li>
+                <li>Bioqrafiyaç avtobioqrafiya & Xatirə</li>
+                <li>Detektiv</li>
+                <li>Elmi-fantastika & Fantaziya</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <span class="text-xl cursor-pointer"><i class="fa-regular fa-heart text-2xl cursor-pointer"></i></span>
-        <span class="text-xl cursor-pointer"><i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i></span>
+      </div>
+      <div class="max-w-[1500px] mx-auto flex items-center justify-between px-4 py-2 text-[15px] h-[45px]">
+        <div class="flex gap-6">
+          <ul class="flex gap-6 text-[#334155] font-semibold">
+            <li><a href="#">Bestseller</a></li>
+            <li><a href="#">Endirimlər</a></li>
+            <li><a href="#">Müəlliflər</a></li>
+            <li><a href="#">Klassiklər</a></li>
+          </ul>
+        </div>
+        <div class="flex gap-4">
+          <ul class="flex gap-4 text-[#334155]">
+            <li><a href="#">Ödəniş və çatdırılma</a></li>
+            <li><a href="#">Loyallıq Kartı</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Əlaqə</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div id="overlay" class="fixed inset-0 bg-gray-800 opacity-50 hidden"></div>
-
-    <div id="dropdownMenu"
-      class="absolute top-[120px] left-1/2 transform -translate-x-1/2 z-50 hidden bg-white shadow-lg rounded-lg pt-2 w-full max-w-[1500px] h-[550px] opacity-0 scale-95 transition-all duration-300 ease-out">
-      <div class="grid grid-cols-6 gap-4 text-[14px]">
-        <div class="pr-4 border-r border-gray-300 column-1">
-          <ul class="menu">
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
-              id="kitab">
-              Kitab
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Bədii ədəbiyyat
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Qeyri-bədii ədəbiyyat
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Elektronika & aksesuar
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Oyuncaqlar & Oyunlar
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Dəftərxana
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500">
-              Hədiyyələr & Hobbi
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-          </ul>
+    <div class="px-4 lg:hidden">
+      <div class="flex items-center justify-between h-[120px]">
+        <div class="flex items-center gap-6">
+          <button id="menu-toggle" class="text-[28px]">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <a href="index.html">
+            <img src="img/logo_b1x3-5c.png" alt="LIBRAFF Logo" class="w-[175px] h-full" />
+          </a>
         </div>
-        <div class="column-2">
-          <ul class="menu">
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
-              id="bedii-edeb">
-              Bədii Ədəbiyyat
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
-              id="qeyri-bedii">
-              Qeyri-bədii ədəbiyyat
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
-              id="bedii-usaq">
-              Bədii uşaq ədəbiyyatı
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-            <li class="flex justify-between items-center group text-[#0f172a] hover:text-red-500 hover-trigger group"
-              id="qeyri-bedii-usaq">
-              Qeyri-bədii uşaq ədəbiyyatı
-              <span class="text-gray-400 group-hover:text-red-500 transition-colors"><i
-                  class="fa-solid fa-chevron-right"></i></span>
-            </li>
-          </ul>
+        <div class="flex items-center space-x-4">
+          <button class="text-xl">
+            <i class="fa-regular fa-user text-xl cursor-pointer"></i>
+          </button>
+          <button class="text-xl">
+            <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
+          </button>
         </div>
-        <div id="bedii-edeb-content" class="col-span-4 grid grid-cols-4 gap-4">
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Antologiya</li>
-              <li>Bioqrafiyaç avtobioqrafiya & Xatirə</li>
-              <li>Detektiv</li>
-              <li>Elmi-fantastika & Fantaziya</li>
-              <li>Fəlsəfə</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Hekayələr & Oçerklər</li>
-              <li>Kino və teatr</li>
-              <li>Klassik poemalar</li>
-              <li>Klassiklər</li>
-              <li>Komiks</li>
-              <li>Macəra</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Mifologiya</li>
-              <li>Nağıllar</li>
-              <li>Poemalar</li>
-              <li>Psixologiya</li>
-              <li>Romanlar & Novellalar</li>
-              <li>Satira</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Tarix, hüquq & Siyasi</li>
-              <li>Tarix roman</li>
-              <li>Triller, mistika & Qorxu</li>
-              <li>Təhsil, mənbə & Dil</li>
-            </ul>
-          </div>
-        </div>
-        <div id="qeyri-bedii-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Ailə</li>
-              <li>Akademik</li>
-              <li>Aşpazlıq</li>
-              <li>Astromoniya</li>
-              <li>Bağbanlıq</li>
-              <li>Detektiv</li>
-              <li>Dini</li>
-              <li>Dəb</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Elm</li>
-              <li>Ezoterika</li>
-              <li>Fəaliyyətlər</li>
-              <li>Fəlsəfə</li>
-              <li>Hekayələr & Esselər</li>
-              <li>Heyvanlar</li>
-              <li>Jurnallar & Qəzetlər</li>
-              <li>Kino və teatr</li>
-              <li>Klassiklər</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Komiks</li>
-              <li>Komputer elmləri</li>
-              <li>Mifologiya</li>
-              <li>Musiqi</li>
-              <li>Poemalar</li>
-              <li>Psixologiya</li>
-              <li>Publisistika</li>
-              <li>Qeyri-bədii</li>
-              <li>Regional maraqlar</li>
-              <li>Romanlar & Novellalar</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Sağlamlıq, tibbi & Idman</li>
-              <li>Sitatlar & Aforizmlər</li>
-              <li>Sosiologiya</li>
-              <li>Şəxsi inkisaf</li>
-              <li>Səyahət & Məkanlar</li>
-              <li>Tarix, hüquq & Siyasi</li>
-              <li>Tarix roman</li>
-              <li>Təhsil, mənbə & Dil</li>
-              <li>Xəritələr</li>
-            </ul>
-          </div>
-        </div>
-        <div id="bedii-usaq-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>3D kitab</li>
-              <li>Dedektiv</li>
-              <li>Heyvanlar</li>
-              <li>Elmi-fantastika & Fantaziya</li>
-              <li>Hekayələr & Oçerklər</li>
-              <li>Klassik Poemalar</li>
-              <li>Klassiklər</li>
-              <li>Komiks</li>
-              <li>Macəra</li>
-              <li>Nağıllar</li>
-              <li>Oyuncaq kitablar</li>
-              <li>Poemalar</li>
-              <li>Romanlar & Novellalar</li>
-              <li>Satira</li>
-              <li>Tarix roman</li>
-              <li>Triller, mistika & Qorxu</li>
-              <li>Təhsil, mənbə & Dil</li>
-            </ul>
-          </div>
-        </div>
-        <div id="qeyri-bedii-usaq-content" class="col-span-4 grid grid-cols-4 gap-4 hidden">
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>3D kitab</li>
-              <li>Dedektiv</li>
-              <li>Heyvanlar</li>
-              <li>Elmi-fantastika & Fantaziya</li>
-              <li>Hekayələr & Oçerklər</li>
-              <li>Klassik Poemalar</li>
-              <li>Klassiklər</li>
-              <li>Komiks</li>
-              <li>Macəra</li>
-              <li>Nağıllar</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Sosiologiya</li>
-              <li>Şəxsi inkisaf</li>
-              <li>Səyahət & Məkanlar</li>
-              <li>Tarix, hüquq & Siyasi</li>
-              <li>Tarix roman</li>
-              <li>Təhsil, mənbə & Dil</li>
-              <li>Xəritələr</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Ailə</li>
-              <li>Akademik</li>
-              <li>Aşpazlıq</li>
-              <li>Astromoniya</li>
-              <li>Bağbanlıq</li>
-              <li>Detektiv</li>
-              <li>Dini</li>
-              <li>Dəb</li>
-            </ul>
-          </div>
-          <div>
-            <ul class="sec-menu text-[#0f172abf]">
-              <li>Kino və teatr</li>
-              <li>Klassik poemalar</li>
-              <li>Klassiklər</li>
-              <li>Antologiya</li>
-              <li>Bioqrafiyaç avtobioqrafiya & Xatirə</li>
-              <li>Detektiv</li>
-              <li>Elmi-fantastika & Fantaziya</li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div class="relative mb-2">
+        <input type="text" placeholder="Növbəti kitabınızı axtarın"
+          class="w-full rounded-full border border-gray-300 px-4 py-2 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-400" />
+        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
       </div>
     </div>
-    <div class="max-w-[1500px] mx-auto flex items-center justify-between px-4 py-2 text-[15px] h-[45px]">
-      <div class="flex gap-6">
-        <ul class="flex gap-6 text-[#334155] font-semibold">
-          <li><a href="#">Bestseller</a></li>
-          <li><a href="#">Endirimlər</a></li>
-          <li><a href="#">Müəlliflər</a></li>
-          <li><a href="#">Klassiklər</a></li>
-        </ul>
+    <div class="lg:hidden">
+      <div id="sidebar"
+        class="fixed top-0 left-0 h-[100vh] w-[50%] bg-white shadow-md transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+        <div class="flex justify-between items-center p-4 border-b border-gray-300 text-[#7b7b7b]">
+          <div class="flex items-center gap-1 cursor-pointer border p-2 border-gray-300 text-[#7b7b7b]">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/1280px-Flag_of_Azerbaijan.svg.png"
+              alt="Azerbaijan Flag" class="w-6 h-4 mr-1">
+            <span class="text-[#7b7b7b]">AZ</span> <i class="fa-solid fa-chevron-down text-[11px]"></i>
+          </div>
+
+
+          <button id="menu-close" class="text-xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="p-4 space-y-2 text-[17px] font-medium">
+          <div class="group">
+            <a href="#" class="block flex justify-between items-center text-[#0f172a80] mb-[10px]"
+              onclick="toggleMainLinks()">
+              Əsas Keçidlər <span id="main-links-toggle" class="text-xl text-[#7b7b7b]"><i
+                  class="fa-solid fa-minus"></i></span>
+            </a>
+            <div id="main-links">
+              <a href="#" class="block p-[15px_0_5px]">Bestseller</a>
+              <a href="#" class="block p-[5px_0]">Endirimlər</a>
+              <a href="#" class="block p-[5px_0]">Müəlliflər</a>
+              <a href="#" class="block p-[5px_0]">Klassiklər</a>
+            </div>
+          </div>
+
+          <hr class="my-2 border-gray-300 text-[#7b7b7b]">
+          <div class="group">
+            <a href="#" class="block flex justify-between items-center text-[#0f172a80] mb-[10px]"
+              onclick="toggleCatalogLinks()">
+              Kataloq <span id="catalog-toggle" class="text-xl text-[#7b7b7b]"><i class="fa-solid fa-minus"></i></span>
+            </a>
+            <div id="catalog-links">
+              <a href="#" class="block p-[15px_0_5px]">Bütün Kitablar</a>
+              <a href="#" class="block p-[5px_0]">Bədii ədəbiyyat</a>
+              <a href="#" class="block p-[5px_0]">Qeyri-bədii ədəbiyyat</a>
+              <a href="#" class="block p-[5px_0]">Klassiklər</a>
+              <a href="#" class="block p-[5px_0]">Detektiv</a>
+              <a href="#" class="block p-[5px_0]">Romanlar & Novellalar</a>
+              <a href="#" class="block p-[5px_0]">Elmi-fantastika & Fantaziya</a>
+              <a href="#" class="block p-[5px_0]">Şəxsi inkisaf</a>
+              <a href="#" class="block p-[5px_0]">Psixologiya</a>
+              <a href="#" class="block p-[5px_0]">Biznes İqtisadiyyat</a>
+              <a href="#" class="block p-[5px_0]">Dəftərxana</a>
+              <a href="#" class="block p-[5px_0]">Hədiyyələr & Pazllar</a>
+            </div>
+          </div>
+              <hr class="my-2 border-gray-300 text-[#7b7b7b]">
+               <div class="group">
+            <a href="#" class="block flex justify-between items-center text-[#0f172a80] mb-[10px]"
+              onclick="toggleOtherLinks()">
+              Digər <span id="other-links-toggle" class="text-xl text-[#7b7b7b]"><i
+                  class="fa-solid fa-minus"></i></span>
+            </a>
+            <div id="other-links">
+              <a href="#" class="block p-[15px_0_5px]">Ödəniş və çatdırılma</a>
+              <a href="#" class="block p-[5px_0]">Loyallıq Kartı</a>
+              <a href="#" class="block p-[5px_0]">FAQ</a>
+              <a href="#" class="block p-[5px_0]">Əlaqə</a>
+            </div>
+          </div>
+        </nav>
       </div>
-      <div class="flex gap-4">
-        <ul class="flex gap-4">
-          <li><a href="#">Ödəniş və çatdırılma</a></li>
-          <li><a href="#">Loyallıq Kartı</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Əlaqə</a></li>
-        </ul>
-      </div>
+      <div id="overley" class="fixed inset-0 bg-gray-800 opacity-50 hidden z-40 overflow-hidden"></div>
     </div>
     <script src="js/header.js"></script>
   </header>

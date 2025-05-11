@@ -35,12 +35,12 @@ document.getElementById("initialPrice").textContent = `Səbətin ilkin dəyəri 
     </div>`;
 
   detailContainer.innerHTML = `
-  <div class="flex flex-col md:flex-row gap-6 mt-6 px-4">
-    <div class="w-full md:w-2/3">
-      <img src="${book.cover}" alt="${book.title}" class="w-[600px] h-[600px] rounded shadow" />
+  <div class="flex flex-col lg:flex-row gap-6 mt-6 px-4">
+    <div class="w-full flex justify-center">
+      <img src="${book.cover}" alt="${book.title}" class="w-full max-w-[600px] h-[600px] rounded shadow object-cover" />
     </div>
 
-    <div class="w-full md:w-1/3 space-y-6">
+    <div class="w-full space-y-6 max-w-[450px] lg:mx-0 mx-auto">
       <div>
         <p class="text-[13px] text-[#767676]">Kod: ${book.isbn || "N/A"}</p>
         <h2 class="text-[32px] font-semibold text-[#1e293b] mt-[30px] mb-[5px] pr-[20px]">${book.title}</h2>
@@ -57,7 +57,7 @@ document.getElementById("initialPrice").textContent = `Səbətin ilkin dəyəri 
         </div>
       </div>
 
-      <button onclick="openModal()" class="bg-[#ef3340] w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
+      <button onclick="openModal()" class="bg-[#ef3340] w-full max-w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
            <i class="fa-solid fa-bag-shopping"></i> Səbətə əlavə et
       </button>
 
