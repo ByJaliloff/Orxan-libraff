@@ -27,3 +27,19 @@
     goToSlide(next);
   }, 5000); 
 
+function updateImageSource() {
+  const images = document.querySelectorAll(".slider-image");
+
+  images.forEach(img => {
+    const isMobile = window.innerWidth < 1024;  // Mobil ölçü
+    if (isMobile) {
+      img.src = img.getAttribute("data-mobile");  // Mobil şəkil
+    } else {
+      img.src = img.getAttribute("data-desktop");  // Desktop şəkil
+    }
+  });
+}
+
+// Sayt yükləndikdə və pəncərə ölçüsü dəyişəndə şəkilləri yenilə
+window.addEventListener("load", updateImageSource);
+window.addEventListener("resize", updateImageSource);

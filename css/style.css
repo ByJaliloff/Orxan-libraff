@@ -86,3 +86,12 @@
     width: 70% !important;
   }
 }
+  @media (max-width: 1024px) {
+    #slider-track{
+      height: 400px;
+      object-fit: none;
+    }
+    .mobil{
+      height: 450px;
+    }
+  }
