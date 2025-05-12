@@ -19,7 +19,7 @@ function renderCards() {
                 <img class="w-full h-[340px] object-cover rounded-t-lg" src="${book.cover}" alt="" />
             </a>
             <a href="wishlist.html"
-              class="absolute top-5 right-5 text-2xl text-white opacity-0 group-hover:opacity-100 transition-all duration-300" onclick='addToWishlist(${JSON.stringify(book)})'>
+              class="absolute top-5 right-5 text-2xl text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
               <i class="fa-solid fa-heart hover:text-[#ef3340]"></i>
              </a>
             <div class="p-5 space-y-3">

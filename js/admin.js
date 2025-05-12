@@ -42,7 +42,7 @@ function printTable() {
     ${book.category} > ${book.subCategory || ''} > ${book.subSubCategory || ''}
     </td>
     <td class="px-6 py-3 text-gray-300">
-        ${book.like}, ${book.dislike}, ${book.view}
+        ${book.view}
     </td>
     <td class="w-[50px] p-1">
         <img class="h-[50px] object-cover w-full rounded" src="${book.cover}" alt="news image">
@@ -141,8 +141,6 @@ function getVal() {
         category: categorySec.value,
         subCategory: subCategorySec.value,
         subSubCategory: subSubCategorySec.value,
-        like: 0,
-        dislike: 0,
         view:0
     }
 
