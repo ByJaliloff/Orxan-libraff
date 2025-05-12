@@ -31,15 +31,14 @@ function updateImageSource() {
   const images = document.querySelectorAll(".slider-image");
 
   images.forEach(img => {
-    const isMobile = window.innerWidth < 1024;  // Mobil ölçü
+    const isMobile = window.innerWidth < 1024;  
     if (isMobile) {
-      img.src = img.getAttribute("data-mobile");  // Mobil şəkil
+      img.src = img.getAttribute("data-mobile"); 
     } else {
-      img.src = img.getAttribute("data-desktop");  // Desktop şəkil
+      img.src = img.getAttribute("data-desktop"); 
     }
   });
 }
 
-// Sayt yükləndikdə və pəncərə ölçüsü dəyişəndə şəkilləri yenilə
 window.addEventListener("load", updateImageSource);
 window.addEventListener("resize", updateImageSource);

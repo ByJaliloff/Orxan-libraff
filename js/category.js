@@ -7,7 +7,7 @@ const minPriceInput = document.getElementById("minPrice");
 const maxPriceInput = document.getElementById("maxPrice");
 const priceRange = document.getElementById("priceRange");
 
-let currentCategory = "Klassiklər"; // Default olaraq ilk kateqoriya
+let currentCategory = "Klassiklər"; 
 
 function getUniqueCategories(data) {
   const allCategories = data.map(book => book.subSubCategory);
@@ -73,19 +73,19 @@ function renderPriceFilter(books, selectedCategory) {
   const min = Math.min(...prices);
   const max = Math.max(...prices);
 
-  // Yuvarlaqlaşdırma əvəzinə floor və ceil tətbiq olunur
-  minPriceInput.value = Math.floor(min);  // Aşağı yuvarlaqlaşdırılır
-  maxPriceInput.value = Math.ceil(max);   // Yuxarı yuvarlaqlaşdırılır
+
+  minPriceInput.value = Math.floor(min); 
+  maxPriceInput.value = Math.ceil(max);  
 
   priceRange.min = min;
   priceRange.max = max;
   priceRange.value = max;
 
   priceRange.addEventListener("input", () => {
-    const roundedValue = Math.ceil(priceRange.value); // Yuxarıya yuvarlaqlaşdırılır
-    priceRange.value = roundedValue; // Ensure the value is rounded
-    minPriceInput.value = Math.floor(minPriceInput.value); // Min qiymətə floor tətbiq olunur
-    maxPriceInput.value = Math.ceil(maxPriceInput.value); // Max qiymətə ceil tətbiq olunur
+    const roundedValue = Math.ceil(priceRange.value);
+    priceRange.value = roundedValue; 
+    minPriceInput.value = Math.floor(minPriceInput.value); 
+    maxPriceInput.value = Math.ceil(maxPriceInput.value); 
     renderBooks(books, selectedCategory);
   });
 
