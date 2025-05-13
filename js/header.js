@@ -61,10 +61,16 @@ const toggleButton = document.getElementById("menu-toggle");
 const closeButton = document.getElementById("menu-close");
 const sidebar = document.getElementById("sidebar");
 const overley = document.getElementById("overley");
+const menuLink = document.getElementById("menu-link"); 
 
 toggleButton.addEventListener("click", () => {
   sidebar.classList.remove("-translate-x-full");
   overley.classList.remove("hidden");
+});
+
+menuLink.addEventListener("click", () => {
+  sidebar.classList.toggle("-translate-x-full");
+  overley.classList.toggle("hidden");
 });
 
 closeButton.addEventListener("click", () => {
