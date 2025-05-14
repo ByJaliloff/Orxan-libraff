@@ -2,6 +2,7 @@ import { getAllBooks } from "./service.js";
 
 const categoryWay = document.querySelector('#category-way');
 const detailContainer = document.querySelector("#detail-container");
+let selectedBook = null;
 
 async function renderDetail() {
   const params = new URLSearchParams(window.location.search);
@@ -14,6 +15,7 @@ async function renderDetail() {
     categoryWay.innerHTML = "<p>Kitab tapılmadı.</p>";
     return;
   }
+   selectedBook = book;
 
 document.getElementById("bookTitle").textContent = book.title;
 document.getElementById("bookPrice").textContent = `${book.price} ₼`;
@@ -57,7 +59,7 @@ document.getElementById("initialPrice").textContent = `Səbətin ilkin dəyəri 
         </div>
       </div>
 
-      <button onclick="openModal()" class="bg-[#ef3340] w-full max-w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
+      <button onclick="openModal()"  class="bg-[#ef3340] w-full max-w-[450px] h-[50px] text-white text-[18px] px-6 rounded-full font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition">
            <i class="fa-solid fa-bag-shopping"></i> Səbətə əlavə et
       </button>
 
@@ -90,3 +92,20 @@ document.getElementById("initialPrice").textContent = `Səbətin ilkin dəyəri 
 
 
 renderDetail();
+
+document.getElementById("addToBasket").addEventListener("click", function () {
+  if (!selectedBook) return;
+
+  let basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+  const existingItem = basket.find(item => item.id === selectedBook.id);
+
+  if (existingItem) {
+    existingItem.count += 1;
+  } else {
+    basket.push({ ...selectedBook, count: 1 });
+  }
+
+  localStorage.setItem("basket", JSON.stringify(basket));
+  window.location.href = "basket.html";
+});
