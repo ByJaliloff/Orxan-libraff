@@ -293,16 +293,23 @@
 
     <script src="js/header.js"></script>
   </header>
-  <div class="max-w-[1500px] mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">İstək Siyahısı</h1>
+  <div class="max-w-[1500px] mx-auto px-4">
+    <div class="text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
+      <span>Əsas səhifə</span>
+      <span class="mx-[6px]">/</span>
+      <span>Səbətdə olanlar</span>
+    </div>
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Əlavə edilmişlər</h1>
     <div id="wishlist" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
     </div>
-    <div class="mt-8 text-left">
+    <div class="mt-8 flex justify-between items-center text-left flex-wrap gap-4 pb-[100px]">
       <button id="clear-wishlist-btn"
-        class="bg-white  text-[#0f172a] font-semibold py-2 px-6 rounded-full border-2 border-red-500 transition cursor-pointer"><i
-          class="fa-solid fa-trash-can"></i>
-        Siyahını Sıfırla
+        class="bg-white text-[#0f172a] font-semibold py-2 px-6 rounded-full border-2 border-red-500 transition cursor-pointer">
+        <i class="fa-solid fa-trash-can"></i> Siyahını Sıfırla
       </button>
+      <a href="index.html" class="bg-black text-white font-semibold py-2 px-6 rounded-full transition cursor-pointer">
+        Alış-verişə davam et
+      </a>
     </div>
   </div>
   <script src="js/wishlist.js" type="module"></script>
