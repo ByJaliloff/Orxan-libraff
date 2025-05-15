@@ -52,14 +52,29 @@ function addToWishlist(bookId) {
   let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   const exists = wishlist.some(item => item.id === id);
 
-  if (!exists) {
-    wishlist.push(selectedBook);
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    alert("İstək siyahısına əlavə olundu!");
-    updateWishlistCount(); 
-  } else {
-    alert("Bu kitab artıq siyahıdadır.");
-  }
+if (!exists) {
+  wishlist.push(selectedBook);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  updateWishlistCount(); 
+  
+  Swal.fire({
+    icon: 'success',
+    title: 'Əlavə olundu!',
+    text: 'Kitab istək siyahısına əlavə edildi.',
+    confirmButtonColor: '#ef3340',
+    confirmButtonText: 'Bağla',
+  });
+
+} else {
+  Swal.fire({
+    icon: 'info',
+    title: 'Artıq əlavə olunub',
+    text: 'Bu kitab artıq istək siyahısındadır.',
+    confirmButtonColor: '#3b82f6',
+    confirmButtonText: 'Bağla',
+  });
+}
+
 }
 
 function updateWishlistCount() {
