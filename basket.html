@@ -293,53 +293,52 @@
 
     <script src="js/header.js"></script>
   </header>
-  <div class="max-w-[1500px] mx-auto px-4">
-
-    <div class="px-4 text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
-      <span>Əsas səhifə</span>
-      <span class="mx-[6px]">/</span>
-      <span>Səbətdə olanlar</span>
-    </div>
-
-    <div class="md:hidden space-y-4 mb-6">
-      <div class="flex flex-col gap-4">
-        <button id="reset-basket" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer w-full">
-          Səbəti təmizlə
-        </button>
-        <button class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer w-full">
-          <i class="fa-regular fa-circle-check"></i> Sifarişi təsdiqlə
-        </button>
-      </div>
-      
-    </div>
-
-    <div id="basket-wrapper" class="space-y-6 hidden md:block"></div>
-    <div id="basket-wrapper-mobile" class="block md:hidden space-y-6"></div>
-
-    <div class="my-6 text-right text-lg font-bold border border-[#cbd5e1] p-[9px] text-[#a2a2a2]">
-      Cəm məbləğ (₼) <span id="total-amount" class="text-[#1e293b] ml-4">0.00 ₼</span>
-    </div>
-    <div class="md:hidden space-y-4 pb-[100px]"><button id="continue-shopping"
-        class="bg-black text-white px-6 py-2 rounded-full cursor-pointer w-full text-center">
-        Alış-verişə davam et
-      </button></div>
-
-    <div class="mt-8 hidden md:flex justify-between items-center font-bold px-4">
-      <button id="continue-shopping" class="bg-black text-white px-4 py-2 rounded-full cursor-pointer">
-        Alış-verişə davam et
-      </button>
-      <div id="basket-buttons" class="flex gap-4">
-        <button id="reset-basket" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer">
-          Səbəti təmizlə
-        </button>
-        <button class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer"><i
-            class="fa-regular fa-circle-check"></i>
-          Sifarişi təsdiqlə
-        </button>
-      </div>
-    </div>
-
+<div class="max-w-[1500px] mx-auto px-4">
+  <div class="px-4 text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
+    <span>Əsas səhifə</span>
+    <span class="mx-[6px]">/</span>
+    <span>Səbətdə olanlar</span>
   </div>
+  <div class="md:hidden space-y-4 mb-6">
+    <div class="flex flex-col gap-4">
+      <button id="reset-basket-mobile" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer w-full">
+        Səbəti təmizlə
+      </button>
+      <button id="confirm-order-mobile" class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer w-full">
+        <i class="fa-regular fa-circle-check"></i> Sifarişi təsdiqlə
+      </button>
+    </div>
+  </div>
+  <div id="basket-wrapper" class="space-y-6 hidden md:block"></div>
+  <div id="basket-wrapper-mobile" class="block md:hidden space-y-6"></div>
+
+  <div class="my-6 text-right text-lg font-bold border border-[#cbd5e1] p-[9px] text-[#a2a2a2]">
+    Cəm məbləğ (₼) <span id="total-amount" class="text-[#1e293b] ml-4">0.00 ₼</span>
+  </div>
+
+  <div class="md:hidden space-y-4 pb-[100px]">
+    <button id="continue-shopping-mobile"
+      class="bg-black text-white px-6 py-2 rounded-full cursor-pointer w-full text-center">
+      Alış-verişə davam et
+    </button>
+  </div>
+
+  <div class="mt-8 hidden md:flex justify-between items-center font-bold px-4">
+    <button id="continue-shopping-desktop" class="bg-black text-white px-4 py-2 rounded-full cursor-pointer">
+      Alış-verişə davam et
+    </button>
+    <div id="basket-buttons" class="flex gap-4">
+      <button id="reset-basket-desktop" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer">
+        Səbəti təmizlə
+      </button>
+      <button id="confirm-order-desktop" class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer">
+        <i class="fa-regular fa-circle-check"></i> Sifarişi təsdiqlə
+      </button>
+    </div>
+  </div>
+
+</div>
+
 
   <script src="js/basket.js" type="module"></script>
 </body>

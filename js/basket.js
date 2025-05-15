@@ -1,8 +1,10 @@
 const basket = JSON.parse(localStorage.getItem("basket")) || [];
 const basketWrapper = document.getElementById("basket-wrapper");
 const totalAmountSpan = document.getElementById("total-amount");
-const resetBtn = document.getElementById("reset-basket");
-const continueBtn = document.getElementById("continue-shopping");
+const resetBtnMobile = document.getElementById("reset-basket-mobile");
+const resetBtnDesktop = document.getElementById("reset-basket-desktop");
+const continueBtnMobile = document.getElementById("continue-shopping-mobile");
+const continueBtnDesktop = document.getElementById("continue-shopping-desktop");
 const basketButtons = document.getElementById("basket-buttons"); 
 const basketWrapperMobile = document.getElementById("basket-wrapper-mobile");
 
@@ -93,7 +95,7 @@ basket.forEach((item) => {
        <p class="line-through text-[#dc2626]">${(parseFloat(item.price) + 1).toFixed(2)} ₼</p>
        <p class="text-[#0d1219]">${parseFloat(item.price).toFixed(2)} ₼</p>
       </div>
-     </div>
+    </div>
       <div class="relative w-full h-8">
          <p class="absolute left-0 top-1/2 -translate-y-1/2 font-medium text-left">Say:</p>
          <input type="number" 
@@ -181,15 +183,33 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }
 
-resetBtn.addEventListener("click", () => {
-  localStorage.removeItem("basket");
-  basket.length = 0;
-  renderBasket();
-});
+if (resetBtnMobile) {
+  resetBtnMobile.addEventListener("click", () => {
+    localStorage.removeItem("basket");
+    basket.length = 0;
+    renderBasket();
+  });
+}
+
+if (resetBtnDesktop) {
+  resetBtnDesktop.addEventListener("click", () => {
+    localStorage.removeItem("basket");
+    basket.length = 0;
+    renderBasket();
+  });
+}
 
 
-continueBtn.addEventListener("click", () => {
-  window.location.href = "category.html";
-});
+if (continueBtnMobile) {
+  continueBtnMobile.addEventListener("click", () => {
+    window.location.href = "category.html";
+  });
+}
+
+if (continueBtnDesktop) {
+  continueBtnDesktop.addEventListener("click", () => {
+    window.location.href = "category.html";
+  });
+}
 
 renderBasket();
