@@ -198,3 +198,33 @@ async function init() {
 }
 
 init();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wishlistCount = document.getElementById("wishlist-count");
+
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  const count = wishlist.length;
+
+  if (count > 0) {
+    wishlistCount.textContent = count;
+    wishlistCount.classList.remove("hidden");
+  } else {
+    wishlistCount.classList.add("hidden");
+  }
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+  const basketCount = document.getElementById("basket-count");
+
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const totalCount = basket.reduce((sum, item) => sum + (item.count || 1), 0);
+
+  if (basketCount) {
+    if (totalCount > 0) {
+      basketCount.textContent = totalCount;
+      basketCount.classList.remove("hidden");
+    } else {
+      basketCount.classList.add("hidden");
+    }
+  }
+})

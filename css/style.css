@@ -31,6 +31,22 @@
     width: 600px;
   }
 
+  @keyframes glowing {
+    0% {
+      box-shadow: 0 0 4px 2px rgba(239, 52, 64, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 10px 4px rgba(239, 52, 64, 1);
+    }
+    100% {
+      box-shadow: 0 0 4px 2px rgba(239, 52, 64, 0.8);
+    }
+  }
+
+  .glowing-pulse {
+    animation: glowing 1.5s infinite;
+  }
+
   @media (max-width: 1275px) {
     .search-wrapper {
       width: 400px;

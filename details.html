@@ -43,8 +43,22 @@
             <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
               class="fa-solid fa-chevron-down"></i>
           </div>
-          <span class="text-xl cursor-pointer"><i class="fa-regular fa-heart text-2xl cursor-pointer"></i></span>
-          <span class="text-xl cursor-pointer"><i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i></span>
+          <span id="wishlist-icon" class="relative text-xl cursor-pointer"
+            onclick="window.location.href='wishlist.html'">
+            <i class="fa-regular fa-heart text-2xl cursor-pointer"></i>
+            <span id="wishlist-count"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+              0
+            </span>
+          </span>
+          <span id="basket-icon" class="relative text-xl cursor-pointer" onclick="window.location.href='basket.html'">
+            <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
+            <span id="basket-count"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
+              0
+            </span>
+          </span>
+
         </div>
       </div>
 
@@ -245,33 +259,33 @@
       </div>
       <div id="overley" class="fixed inset-0 bg-gray-800 opacity-50 hidden z-40 overflow-hidden"></div>
     </div>
-<div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
 
-  <div class="flex justify-around items-center text-xs text-gray-500 py-2">
-    <button id="menu-link" class="flex flex-col items-center hover:text-blue-600">
-            <i class="fa-solid fa-bars text-[24px] mb-[4px]"></i>Menyu
-          </button>
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-magnifying-glass text-[24px] mb-[4px]"></i>
-      Axtarış
-    </a>
+      <div class="flex justify-around items-center text-xs text-gray-500 py-2">
+        <button id="menu-link" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-bars text-[24px] mb-[4px]"></i>Menyu
+        </button>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-magnifying-glass text-[24px] mb-[4px]"></i>
+          Axtarış
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-bag-shopping text-[24px] mb-[4px]"></i>
-      Səbət
-    </a>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-bag-shopping text-[24px] mb-[4px]"></i>
+          Səbət
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-regular fa-user text-[24px] mb-[4px]"></i>
-      Hesabım
-    </a>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-regular fa-user text-[24px] mb-[4px]"></i>
+          Hesabım
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-phone text-[24px] mb-[4px]"></i>
-      Əlaqə
-    </a>
-  </div>
-</div>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-phone text-[24px] mb-[4px]"></i>
+          Əlaqə
+        </a>
+      </div>
+    </div>
 
     <script src="js/header.js"></script>
   </header>
@@ -302,7 +316,8 @@
           <button onclick="closeModal()"
             class="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800 transition">Alış-verişə davam
             et</button>
-          <button id="addToBasket" class="bg-[#ef3340] text-white px-6 py-2 rounded-full hover:bg-red-700 transition">Səbət</button>
+          <button id="addToBasket"
+            class="bg-[#ef3340] text-white px-6 py-2 rounded-full hover:bg-red-700 transition">Səbət</button>
         </div>
       </div>
     </div>

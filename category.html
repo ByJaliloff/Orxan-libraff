@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -43,8 +43,22 @@
             <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
               class="fa-solid fa-chevron-down"></i>
           </div>
-          <span class="text-xl cursor-pointer"><i class="fa-regular fa-heart text-2xl cursor-pointer"></i></span>
-          <span class="text-xl cursor-pointer"><i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i></span>
+          <span id="wishlist-icon" class="relative text-xl cursor-pointer"
+            onclick="window.location.href='wishlist.html'">
+            <i class="fa-regular fa-heart text-2xl cursor-pointer"></i>
+            <span id="wishlist-count"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+              0
+            </span>
+          </span>
+          <span id="basket-icon" class="relative text-xl cursor-pointer" onclick="window.location.href='basket.html'">
+            <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
+            <span id="basket-count"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
+              0
+            </span>
+          </span>
+
         </div>
       </div>
 
@@ -245,130 +259,130 @@
       </div>
       <div id="overley" class="fixed inset-0 bg-gray-800 opacity-50 hidden z-40 overflow-hidden"></div>
     </div>
-<div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-md z-50 md:hidden">
 
-  <div class="flex justify-around items-center text-xs text-gray-500 py-2">
-    <button id="menu-link" class="flex flex-col items-center hover:text-blue-600">
-            <i class="fa-solid fa-bars text-[24px] mb-[4px]"></i>Menyu
-          </button>
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-magnifying-glass text-[24px] mb-[4px]"></i>
-      Axtarış
-    </a>
+      <div class="flex justify-around items-center text-xs text-gray-500 py-2">
+        <button id="menu-link" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-bars text-[24px] mb-[4px]"></i>Menyu
+        </button>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-magnifying-glass text-[24px] mb-[4px]"></i>
+          Axtarış
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-bag-shopping text-[24px] mb-[4px]"></i>
-      Səbət
-    </a>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-bag-shopping text-[24px] mb-[4px]"></i>
+          Səbət
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-regular fa-user text-[24px] mb-[4px]"></i>
-      Hesabım
-    </a>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-regular fa-user text-[24px] mb-[4px]"></i>
+          Hesabım
+        </a>
 
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-phone text-[24px] mb-[4px]"></i>
-      Əlaqə
-    </a>
-  </div>
-</div>
+        <a href="#" class="flex flex-col items-center hover:text-blue-600">
+          <i class="fa-solid fa-phone text-[24px] mb-[4px]"></i>
+          Əlaqə
+        </a>
+      </div>
+    </div>
 
     <script src="js/header.js"></script>
   </header>
-    <div
-        class="md:hidden flex justify-center gap-4 px-4 py-3 sticky top-0 bg-white/60 backdrop-blur-md z-20 rounded-b-xl">
-        <button onclick="openCategory()"
-            class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-white/50 rounded-full text-[16px] font-medium">
-            <i class="fa-solid fa-grip"></i> Kateqoriyalar
-        </button>
-        <button onclick="openFilter()"
-            class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-white/50 rounded-full text-[16px] font-medium">
-            <i class="fa-solid fa-filter"></i> Filterlər
-        </button>
+  <div
+    class="md:hidden flex justify-center gap-4 px-4 py-3 sticky top-0 bg-white/60 backdrop-blur-md z-20 rounded-b-xl">
+    <button onclick="openCategory()"
+      class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-white/50 rounded-full text-[16px] font-medium">
+      <i class="fa-solid fa-grip"></i> Kateqoriyalar
+    </button>
+    <button onclick="openFilter()"
+      class="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white border border-white/50 rounded-full text-[16px] font-medium">
+      <i class="fa-solid fa-filter"></i> Filterlər
+    </button>
+  </div>
+  <div class="max-w-[1500px] mx-auto">
+    <div id="main-title" class="px-4">
+      <h3 class="text-[28px] font-semibold text-[#0f172a] border-t-[1px] border-[#cbd5e1] pt-[20px]"></h3>
     </div>
-    <div class="max-w-[1500px] mx-auto">
-        <div id="main-title" class="px-4">
-            <h3 class="text-[28px] font-semibold text-[#0f172a] border-t-[1px] border-[#cbd5e1] pt-[20px]"></h3>
+    <div class="pt-[10px] m-[5px_0_20px] " id="category-way"></div>
+    <div class="flex min-h-screen">
+      <aside class=" hidden md:block w-64 bg-white shadow-md p-4 border border-[#eee] rounded-xl">
+        <h2 class="text-[16px] font-semibold mb-4">Kateqoriyalar</h2>
+        <ul id="categoryList" class="space-y-2 "></ul>
+        <div class="mt-6">
+          <h2 class="text-[16px] font-semibold mb-4">Filterlər</h2>
+          <h2 class="text-[16px] font-semibold mb-4">Dil</h2>
+          <div id="languageFilter" class="space-y-2 text-[14px]">
+          </div>
         </div>
-        <div class="pt-[10px] m-[5px_0_20px] " id="category-way"></div>
-        <div class="flex min-h-screen">
-            <aside class=" hidden md:block w-64 bg-white shadow-md p-4 border border-[#eee] rounded-xl">
-                <h2 class="text-[16px] font-semibold mb-4">Kateqoriyalar</h2>
-                <ul id="categoryList" class="space-y-2 "></ul>
-                <div class="mt-6">
-                    <h2 class="text-[16px] font-semibold mb-4">Filterlər</h2>
-                    <h2 class="text-[16px] font-semibold mb-4">Dil</h2>
-                    <div id="languageFilter" class="space-y-2 text-[14px]">
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <h2 class="text-[16px] font-semibold mb-4">Qiymət</h2>
-                    <div class="flex items-center space-x-2 text-[14px]">
-                        <input type="number" id="minPrice" class="border rounded px-2 py-1 w-full" />
-                        <span>-</span>
-                        <input type="number" id="maxPrice" class="border rounded px-2 py-1 w-full" />
-                    </div>
-                    <input type="range" id="priceRange" class="w-full mt-4" min="0" max="100" step="1" />
-                    <div class="flex justify-between mt-2">
-                        <label for="priceRange" class="text-sm text-gray-500">Qiymət diapazonu: </label>
-                        <span id="rangeValue" class="text-sm text-gray-500">0₼ - 100₼</span>
-                    </div>
-                </div>
-            </aside>
-            <main class="flex-1 p-6">
-                <div id="bookList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
-            </main>
+        <div class="mt-6">
+          <h2 class="text-[16px] font-semibold mb-4">Qiymət</h2>
+          <div class="flex items-center space-x-2 text-[14px]">
+            <input type="number" id="minPrice" class="border rounded px-2 py-1 w-full" />
+            <span>-</span>
+            <input type="number" id="maxPrice" class="border rounded px-2 py-1 w-full" />
+          </div>
+          <input type="range" id="priceRange" class="w-full mt-4" min="0" max="100" step="1" />
+          <div class="flex justify-between mt-2">
+            <label for="priceRange" class="text-sm text-gray-500">Qiymət diapazonu: </label>
+            <span id="rangeValue" class="text-sm text-gray-500">0₼ - 100₼</span>
+          </div>
         </div>
+      </aside>
+      <main class="flex-1 p-6">
+        <div id="bookList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+      </main>
     </div>
-    <div id="categoryModal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold">Kateqoriyalar</h2>
-                <button onclick="closeCategory()" class="text-xl">✕</button>
-            </div>
-            <ul id="categoryListMobile" class="space-y-2">
-            </ul>
-        </div>
-        <div id="filterModal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-xl font-semibold">Filterlər</h2>
-                <button onclick="closeFilter()" class="text-xl">✕</button>
-            </div>
+  </div>
+  <div id="categoryModal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Kateqoriyalar</h2>
+      <button onclick="closeCategory()" class="text-xl">✕</button>
+    </div>
+    <ul id="categoryListMobile" class="space-y-2">
+    </ul>
+  </div>
+  <div id="filterModal" class="fixed inset-0 bg-white z-50 hidden overflow-y-auto p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Filterlər</h2>
+      <button onclick="closeFilter()" class="text-xl">✕</button>
+    </div>
 
-            <div class="mb-4">
-                <h3 class="font-medium mb-2">Dil</h3>
-                <div class="space-y-1 text-sm">
-                    <label><input type="checkbox" /> AZE</label><br />
-                    <label><input type="checkbox" /> RUS</label><br />
-                    <label><input type="checkbox" /> ENG</label>
-                </div>
-            </div>
+    <div class="mb-4">
+      <h3 class="font-medium mb-2">Dil</h3>
+      <div class="space-y-1 text-sm">
+        <label><input type="checkbox" /> AZE</label><br />
+        <label><input type="checkbox" /> RUS</label><br />
+        <label><input type="checkbox" /> ENG</label>
+      </div>
+    </div>
 
-            <div class="mb-4">
-                <h3 class="font-medium mb-2">Qiymət</h3>
-                <div class="flex gap-2">
-                    <input type="number" class="border rounded px-2 py-1 w-full" placeholder="min" />
-                    <input type="number" class="border rounded px-2 py-1 w-full" placeholder="max" />
-                </div>
-            </div>
-        </div>
-    <script>
-        function openCategory() {
-            document.getElementById('categoryModal').classList.remove('hidden');
-        }
+    <div class="mb-4">
+      <h3 class="font-medium mb-2">Qiymət</h3>
+      <div class="flex gap-2">
+        <input type="number" class="border rounded px-2 py-1 w-full" placeholder="min" />
+        <input type="number" class="border rounded px-2 py-1 w-full" placeholder="max" />
+      </div>
+    </div>
+  </div>
+  <script>
+    function openCategory() {
+      document.getElementById('categoryModal').classList.remove('hidden');
+    }
 
-        function closeCategory() {
-            document.getElementById('categoryModal').classList.add('hidden');
-        }
+    function closeCategory() {
+      document.getElementById('categoryModal').classList.add('hidden');
+    }
 
-        function openFilter() {
-            document.getElementById("filterModal").classList.remove("hidden");
-        }
+    function openFilter() {
+      document.getElementById("filterModal").classList.remove("hidden");
+    }
 
-        function closeFilter() {
-            document.getElementById("filterModal").classList.add("hidden");
-        }
-    </script>
-    <script src="js/category.js" type="module"></script>
+    function closeFilter() {
+      document.getElementById("filterModal").classList.add("hidden");
+    }
+  </script>
+  <script src="js/category.js" type="module"></script>
 </body>
 
 </html>
