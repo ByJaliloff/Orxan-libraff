@@ -175,14 +175,13 @@
           <button class="text-xl">
             <i class="fa-regular fa-user text-xl cursor-pointer"></i>
           </button>
-          <button class="relative text-xl">
+          <button class="text-xl relative" onclick="window.location.href='basket.html'">
             <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
-            <span
-              class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
-              3
+            <span id="basket-count-mobile"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
+              0
             </span>
           </button>
-
         </div>
       </div>
       <div class="relative mb-2">
@@ -324,7 +323,7 @@
   </div>
 
   <div class="max-w-[1500px] mx-auto px-4 py-[50px]">
-    <h2 class="text-[30px] text-[#0f172a]"><span class="text-[#ee2d39] mr-[10px]">Aprelin</span>bestsellerləri</h2>
+    <h2 class="text-[30px] text-[#0f172a]"><span class="text-[#ee2d39] mr-[10px]">Mayın</span>bestsellerləri</h2>
     <div id="news-container"
       class="grid gap-2 justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 max-w-[1500px] mx-auto">
     </div>

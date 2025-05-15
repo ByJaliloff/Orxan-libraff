@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const basketCount = document.getElementById("basket-count");
+  const basketCountMobile = document.getElementById("basket-count-mobile");
 
   const basket = JSON.parse(localStorage.getItem("basket")) || [];
   const totalCount = basket.reduce((sum, item) => sum + (item.count || 1), 0);
@@ -138,4 +139,13 @@ document.addEventListener("DOMContentLoaded", () => {
       basketCount.classList.add("hidden");
     }
   }
-})
+
+  if (basketCountMobile) {
+    if (totalCount > 0) {
+      basketCountMobile.textContent = totalCount;
+      basketCountMobile.classList.remove("hidden");
+    } else {
+      basketCountMobile.classList.add("hidden");
+    }
+  }
+});

@@ -30,6 +30,22 @@
 .search-wrapper {
     width: 600px;
   }
+  @media (max-width: 768px) {
+  #basket-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  #basket-buttons > button {
+    flex: 1 1 45%;
+  }
+  #basket-buttons {
+    flex-wrap: nowrap;
+  }
+  #basket-buttons > button:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
 
   @keyframes glowing {
     0% {

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -175,14 +175,13 @@
           <button class="text-xl">
             <i class="fa-regular fa-user text-xl cursor-pointer"></i>
           </button>
-          <button class="relative text-xl">
+          <button class="text-xl relative" onclick="window.location.href='basket.html'">
             <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
-            <span
-              class="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
-              3
+            <span id="basket-count-mobile"
+              class="hidden absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold glowing-pulse">
+              0
             </span>
           </button>
-
         </div>
       </div>
       <div class="relative mb-2">
@@ -294,32 +293,55 @@
 
     <script src="js/header.js"></script>
   </header>
-    <div class="max-w-[1500px] mx-auto">
-        <div class="px-4 text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
-            <span>Əsas səhifə</span>
-            <span class="mx-[6px]">/</span>
-            <span>Səbətdə olanlar</span>
-        </div>
-        <div id="basket-wrapper" class="space-y-6 hidden md:block"></div>
-        <div id="basket-wrapper-mobile" class="block md:hidden space-y-6"></div>
-        <div class="mt-6 text-right text-lg font-bold border border-[#cbd5e1] p-[9px] text-[#a2a2a2]">
-            Cəm məbləğ (₼) <span id="total-amount" class="text-[#1e293b] ml-4">0.00 ₼</span>
-        </div>
-        <div class="mt-8 flex justify-between items-center font-bold px-4">
-            <button id="continue-shopping" class="bg-black text-white px-4 py-2 rounded-full">
-                Alış-verişə davam et
-            </button>
-            <div id="basket-buttons" class="flex gap-4">
-                <button id="reset-basket" class="border border-red-500 text-black px-4 py-2 rounded-full">
-                    Səbəti təmizlə
-                </button>
-                <button class="bg-red-500 text-white px-4 py-2 rounded-full"><i class="fa-regular fa-circle-check"></i>
-                    Sifarişi təsdiqlə
-                </button>
-            </div>
-        </div>
+  <div class="max-w-[1500px] mx-auto px-4">
+
+    <div class="px-4 text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
+      <span>Əsas səhifə</span>
+      <span class="mx-[6px]">/</span>
+      <span>Səbətdə olanlar</span>
     </div>
-    <script src="js/basket.js" type="module"></script>
+
+    <div class="md:hidden space-y-4 mb-6">
+      <div class="flex flex-col gap-4">
+        <button id="reset-basket" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer w-full">
+          Səbəti təmizlə
+        </button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer w-full">
+          <i class="fa-regular fa-circle-check"></i> Sifarişi təsdiqlə
+        </button>
+      </div>
+      
+    </div>
+
+    <div id="basket-wrapper" class="space-y-6 hidden md:block"></div>
+    <div id="basket-wrapper-mobile" class="block md:hidden space-y-6"></div>
+
+    <div class="my-6 text-right text-lg font-bold border border-[#cbd5e1] p-[9px] text-[#a2a2a2]">
+      Cəm məbləğ (₼) <span id="total-amount" class="text-[#1e293b] ml-4">0.00 ₼</span>
+    </div>
+    <div class="md:hidden space-y-4 pb-[100px]"><button id="continue-shopping"
+        class="bg-black text-white px-6 py-2 rounded-full cursor-pointer w-full text-center">
+        Alış-verişə davam et
+      </button></div>
+
+    <div class="mt-8 hidden md:flex justify-between items-center font-bold px-4">
+      <button id="continue-shopping" class="bg-black text-white px-4 py-2 rounded-full cursor-pointer">
+        Alış-verişə davam et
+      </button>
+      <div id="basket-buttons" class="flex gap-4">
+        <button id="reset-basket" class="border border-red-500 text-black px-4 py-2 rounded-full cursor-pointer">
+          Səbəti təmizlə
+        </button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded-full cursor-pointer"><i
+            class="fa-regular fa-circle-check"></i>
+          Sifarişi təsdiqlə
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/basket.js" type="module"></script>
 </body>
 
 </html>

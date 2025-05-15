@@ -74,24 +74,40 @@ basket.forEach((item) => {
   mobileDiv.className = "border-t border-gray-200 py-4 px-4 space-y-4";
 
   mobileDiv.innerHTML = `
-    <div class="flex gap-4">
-      <img src="${item.cover}" class="w-[150px] h-[150px] object-cover rounded" />
-    </div>
-    <div class="flex-1">
-        <h3 class="font-semibold text-[#ef3340] text-sm mb-1">${item.title}
-          <button class="text-red-500 ml-2 delete-btn" data-id="${item.id}">
-            <i class="fa-solid fa-circle-xmark pointer-events-none"></i>
-          </button>
-        </h3>
-        <p class="text-xs text-gray-600 mb-1">Kod: ${item.id}</p>
-        <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Endirim</span>
+  <div class="flex flex-col items-center gap-3 text-center">
+    <img src="${item.cover}" class="w-[150px] h-[150px] object-cover rounded" />
+
+    <h3 class="font-semibold text-[#ef3340] text-base">
+      ${item.title}
+      <button class="text-red-500 ml-2 delete-btn" data-id="${item.id}">
+        <i class="fa-solid fa-circle-xmark pointer-events-none"></i>
+      </button>
+    </h3>
+
+    <p class="text-xs text-gray-600">Kod: ${item.id}</p>
+    <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">Endirim</span>
+
+    <div class="relative w-full h-14">
+          <p class="absolute left-0 top-1/2 -translate-y-1/2 font-medium text-left">Qiymət:</p>
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+       <p class="line-through text-[#dc2626]">${(parseFloat(item.price) + 1).toFixed(2)} ₼</p>
+       <p class="text-[#0d1219]">${parseFloat(item.price).toFixed(2)} ₼</p>
       </div>
-    <div class="text-sm space-y-1">
-      <p><span class="font-medium">Qiymət:</span> <span class="line-through text-[#dc2626]">${(parseFloat(item.price) + 1).toFixed(2)} ₼</span> <span class="text-[#0d1219]">${parseFloat(item.price).toFixed(2)} ₼</span></p>
-      <p><span class="font-medium">Say:</span> <input type="number" class="count-input w-16 border border-[#e1e1e1] px-2 py-1 text-center" value="${item.count}" min="1" data-id="${item.id}" /></p>
-      <p><span class="font-medium">Cəm:</span> <span class="font-semibold text-[#0f172a]">${itemTotal.toFixed(2)} ₼</span></p>
+     </div>
+      <div class="relative w-full h-8">
+         <p class="absolute left-0 top-1/2 -translate-y-1/2 font-medium text-left">Say:</p>
+         <input type="number" 
+           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 count-input w-20 border border-[#e1e1e1] px-2 py-1 text-center" 
+           value="${item.count}" min="1" data-id="${item.id}" />
+      </div>
+      <div class="relative w-full h-6">
+        <p class="absolute left-0 font-medium">Cəm:</p>
+        <p class="absolute left-1/2 -translate-x-1/2 font-semibold text-[#0f172a]">${itemTotal.toFixed(2)} ₼</p>
+      </div>
     </div>
-  `;
+  </div>
+`;
+
 
   basketWrapperMobile.appendChild(mobileDiv);
 });
@@ -112,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const basketCount = document.getElementById("basket-count");
+  const basketCountMobile = document.getElementById("basket-count-mobile");
 
   const basket = JSON.parse(localStorage.getItem("basket")) || [];
   const totalCount = basket.reduce((sum, item) => sum + (item.count || 1), 0);
@@ -124,7 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
       basketCount.classList.add("hidden");
     }
   }
-})
+
+  if (basketCountMobile) {
+    if (totalCount > 0) {
+      basketCountMobile.textContent = totalCount;
+      basketCountMobile.classList.remove("hidden");
+    } else {
+      basketCountMobile.classList.add("hidden");
+    }
+  }
+});
+
 
   totalAmountSpan.textContent = total.toFixed(2) + " ₼";
 
