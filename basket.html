@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Basket</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="img/LibraffLogo.ico" type="image/x-icon" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -39,11 +40,44 @@
           </div>
         </div>
         <div class="flex items-center gap-4 text-[16px]">
-          <div class="flex items-center gap-1 cursor-pointer">AZ <i class="fa-solid fa-chevron-down"></i></div>
-          <div class="flex items-center gap-2  px-4 py-2 rounded-full cursor-pointer text-[#1e293b] font-bold">
-            <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
-              class="fa-solid fa-chevron-down"></i>
-          </div>
+          <details class="relative inline-block">
+            <summary class="flex items-center gap-1 cursor-pointer list-none">
+              AZ
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="absolute mt-2 w-15 text-[#ef3340] bg-white border border-gray-300 rounded shadow z-10">
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100">AZ</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100">RU</a>
+            </div>
+          </details>
+
+          <details class="relative group inline-block text-[#1e293b]">
+            <summary class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer list-none font-bold">
+              <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span>
+              Hesabım
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+
+            <div
+              class="absolute right-0 mt-2 w-[340px] h-[278px] bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-10 flex flex-col gap-3">
+
+              <a href="#" class="py-1 rounded text-[14px] text-[#0f172a]">Sifarişlər</a>
+              <a href="#" class="py-1 rounded text-[14px] text-[#0f172a]">Qaytarma sorğuları</a>
+              <a href="wishlist.html" class="py-1 rounded text-[14px] text-[#0f172a]">Seçilmişlər</a>
+
+              <div>
+                <label for="order-track" class="block text-sm font-medium mb-1 mt-3">Sifarişi izləmək</label>
+                <input type="text" id="order-track" placeholder="Sifariş nömrəsi/E-poçt"
+                  class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
+              </div>
+
+              <div class="flex gap-16">
+                <button class="w-full bg-[#1e1e1e] text-white py-2 rounded-full hover:bg-blue-700">Daxil ol</button>
+                <button class="w-full bg-[#ef3340] text-white py-2 rounded-full hover:bg-blue-50">Qeydiyyat</button>
+              </div>
+            </div>
+          </details>
+
           <span id="wishlist-icon" class="relative text-xl cursor-pointer"
             onclick="window.location.href='wishlist.html'">
             <i class="fa-regular fa-heart text-2xl cursor-pointer"></i>
@@ -173,9 +207,32 @@
           </a>
         </div>
         <div class="flex items-center space-x-4">
-          <button class="text-xl">
-            <i class="fa-regular fa-user text-xl cursor-pointer"></i>
-          </button>
+          <details class="relative inline-block text-[#1e293b]">
+            <summary class="cursor-pointer list-none">
+              <i class="fa-regular fa-user text-xl"></i>
+            </summary>
+
+            <div
+              class="dropdown-menu absolute right-[-53px] mt-2 w-[340px] h-[278px] bg-white border border-gray-200 rounded-lg shadow-lg p-4 z-10 flex flex-col gap-3">
+
+              <a href="#" class="py-1 rounded text-[14px] text-[#0f172a] hover:bg-gray-100 px-2">Sifarişlər</a>
+              <a href="#" class="py-1 rounded text-[14px] text-[#0f172a] hover:bg-gray-100 px-2">Qaytarma sorğuları</a>
+              <a href="wishlist.html"
+                class="py-1 rounded text-[14px] text-[#0f172a] hover:bg-gray-100 px-2">Seçilmişlər</a>
+
+              <div>
+                <label for="order-track" class="block text-sm font-medium mb-1 mt-3">Sifarişi izləmək</label>
+                <input type="text" id="order-track" placeholder="Sifariş nömrəsi/E-poçt"
+                  class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm">
+              </div>
+
+              <div class="flex gap-12 mt-2">
+                <button class="w-full bg-[#1e1e1e] text-white py-2 rounded-full hover:bg-gray-800">Daxil ol</button>
+                <button class="w-full bg-[#ef3340] text-white py-2 rounded-full hover:bg-red-600">Qeydiyyat</button>
+              </div>
+            </div>
+          </details>
+
           <button class="text-xl relative" onclick="window.location.href='basket.html'">
             <i class="fa-solid fa-bag-shopping text-2xl cursor-pointer"></i>
             <span id="basket-count-mobile"
@@ -188,7 +245,7 @@
       <div class="relative mb-2">
         <input id="mobileSearchInput" type="text" placeholder="Növbəti kitabınızı axtarın"
           class="w-full rounded-full border border-gray-300 px-4 py-2 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-400" />
-        <span  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl">
+        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl">
           <i class="fa-solid fa-magnifying-glass"></i>
         </span>
       </div>
