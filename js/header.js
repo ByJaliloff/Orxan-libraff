@@ -26,25 +26,35 @@ function loopPlaceholder() {
   }
 }
 
-  const searchInput = document.getElementById('searchInput');
-  const searchBtn = document.getElementById('searchBtn');
+const desktopInput = document.getElementById('searchInput');
+const mobileInput = document.getElementById('mobileSearchInput');
+const searchBtn = document.getElementById('searchBtn');
 
-  function goToBooksPage() {
-    const query = searchInput.value.trim();
-    if (query) {
-      window.location.href = `books.html?search=${encodeURIComponent(query)}`;
-    }
+function goToBooksPage() {
+  const query =
+    (mobileInput?.value || desktopInput?.value || '').trim();
+
+  if (query) {
+    window.location.href = `books.html?search=${encodeURIComponent(query)}`;
   }
+}
 
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      goToBooksPage();
-    }
-  });
-
-  searchBtn.addEventListener('click', () => {
+desktopInput?.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
     goToBooksPage();
-  });
+  }
+});
+
+mobileInput?.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    goToBooksPage();
+  }
+});
+
+searchBtn?.addEventListener('click', () => {
+  goToBooksPage();
+});
+
 
 window.addEventListener("DOMContentLoaded", loopPlaceholder);
 
