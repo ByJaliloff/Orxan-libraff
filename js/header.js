@@ -26,6 +26,26 @@ function loopPlaceholder() {
   }
 }
 
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+
+  function goToBooksPage() {
+    const query = searchInput.value.trim();
+    if (query) {
+      window.location.href = `books.html?search=${encodeURIComponent(query)}`;
+    }
+  }
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      goToBooksPage();
+    }
+  });
+
+  searchBtn.addEventListener('click', () => {
+    goToBooksPage();
+  });
+
 window.addEventListener("DOMContentLoaded", loopPlaceholder);
 
 const toggleBtn = document.getElementById("toggleBtn");
