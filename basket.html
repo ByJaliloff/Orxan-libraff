@@ -32,14 +32,15 @@
           <div class="relative search-wrapper">
             <input id="searchInput" type="text" placeholder="Search"
               class="w-full border-2 border-[#cbd5e1] rounded-full px-4 py-2 pl-5 pr-10 focus:outline-none  focus:ring-gray-500 h-[44px]" />
-            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"><i
-                class="fa-solid fa-magnifying-glass"></i></span>
+            <span id="searchBtn"
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl cursor-pointer">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
           </div>
         </div>
         <div class="flex items-center gap-4 text-[16px]">
           <div class="flex items-center gap-1 cursor-pointer">AZ <i class="fa-solid fa-chevron-down"></i></div>
-          <div
-            class="flex items-center gap-2  px-4 py-2 rounded-full cursor-pointer text-[#1e293b] font-bold">
+          <div class="flex items-center gap-2  px-4 py-2 rounded-full cursor-pointer text-[#1e293b] font-bold">
             <span class="text-lg"><i class="fa-regular fa-user text-xl"></i></span> Hesabım<i
               class="fa-solid fa-chevron-down"></i>
           </div>
@@ -185,9 +186,9 @@
         </div>
       </div>
       <div class="relative mb-2">
-        <input type="text" placeholder="Növbəti kitabınızı axtarın"
+        <input id="mobileSearchInput" type="text" placeholder="Növbəti kitabınızı axtarın"
           class="w-full rounded-full border border-gray-300 px-4 py-2 text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-400" />
-        <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl">
+        <span  class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl">
           <i class="fa-solid fa-magnifying-glass"></i>
         </span>
       </div>
