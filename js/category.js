@@ -6,6 +6,8 @@ const languageFilter = document.getElementById("languageFilter");
 const minPriceInput = document.getElementById("minPrice");
 const maxPriceInput = document.getElementById("maxPrice");
 const priceRange = document.getElementById("priceRange");
+const rangeValueLabel = document.getElementById("rangeValue");
+
 
 let currentCategory = "Klassiklər";
 
@@ -85,32 +87,36 @@ function renderPriceFilter(books, selectedCategory) {
   const prices = filteredBooks.map((book) => book.price);
   if (prices.length === 0) return;
 
-  const min = Math.min(...prices);
-  const max = Math.max(...prices);
+  const min = Math.floor(Math.min(...prices));
+  const max = Math.ceil(Math.max(...prices));
 
-  minPriceInput.value = Math.floor(min);
-  maxPriceInput.value = Math.ceil(max);
+  minPriceInput.value = min;
+  maxPriceInput.value = max;
 
   priceRange.min = min;
   priceRange.max = max;
   priceRange.value = max;
 
   priceRange.addEventListener("input", () => {
-    const roundedValue = Math.ceil(priceRange.value);
-    priceRange.value = roundedValue;
-    minPriceInput.value = Math.floor(minPriceInput.value);
-    maxPriceInput.value = Math.ceil(maxPriceInput.value);
+    const value = parseFloat(priceRange.value);
+    maxPriceInput.value = value;
+
+    rangeValueLabel.textContent = `${minPriceInput.value}₼ - ${maxPriceInput.value}₼`;
+
     renderBooks(books, selectedCategory);
   });
 
   minPriceInput.addEventListener("input", () => {
+    rangeValueLabel.textContent = `${minPriceInput.value}₼ - ${maxPriceInput.value}₼`;
     renderBooks(books, selectedCategory);
   });
 
   maxPriceInput.addEventListener("input", () => {
+    rangeValueLabel.textContent = `${minPriceInput.value}₼ - ${maxPriceInput.value}₼`;
     renderBooks(books, selectedCategory);
   });
 }
+
 
 function renderBooks(books, selectedCategory) {
   const categoryWay = document.getElementById("category-way");

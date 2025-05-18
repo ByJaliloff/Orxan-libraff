@@ -41,7 +41,7 @@ function renderAuthors(grouped) {
 
   sortedLetters.forEach(letter => {
     const wrapper = document.createElement('div');
-    wrapper.className = 'bg-white  p-4';
+    wrapper.className = 'bg-white p-4';
 
     const title = document.createElement('h2');
     title.textContent = letter;
@@ -53,7 +53,11 @@ function renderAuthors(grouped) {
     sortAuthorsByName(grouped[letter]).forEach(author => {
       const li = document.createElement('li');
       li.textContent = author;
-      li.className = 'text-sm text-[#ef3340]';
+      li.className = 'text-sm text-[#ef3340] cursor-pointer';  
+      li.addEventListener('click', () => {
+
+        window.location.href = `books.html?author=${encodeURIComponent(author)}`;
+      });
       ul.appendChild(li);
     });
 

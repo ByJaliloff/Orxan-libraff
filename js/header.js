@@ -194,7 +194,7 @@ function renderContent(contentArray, targetDivId) {
 
     column.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = item;
+      li.innerHTML = `<a href="books.html?category=${encodeURIComponent(item)}">${item}</a>`;
       ul.appendChild(li);
     });
 
@@ -202,6 +202,7 @@ function renderContent(contentArray, targetDivId) {
     targetDiv.appendChild(div);
   });
 }
+
 
 document.getElementById("bedii-edeb").addEventListener("mouseenter", () => {
   renderContent(bediiEdebiyyatContent, "bedii-edeb-content");

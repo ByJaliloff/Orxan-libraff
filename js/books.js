@@ -7,6 +7,11 @@ function getSearchQuery() {
   return params.get("search")?.toLowerCase() || "";
 }
 
+function getAuthorQuery() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("author")?.toLowerCase() || "";
+}
+
 function renderBooks(books) {
   const bookList = document.getElementById("bookList");
   bookList.innerHTML = "";
@@ -51,19 +56,27 @@ function renderLanguageFilters() {
   });
 
   document.querySelectorAll(".language-checkbox").forEach((checkbox) => {
-    checkbox.addEventListener("change", handleLanguageFilter);
+    checkbox.addEventListener("change", handleFilters);
   });
 }
 
-function handleLanguageFilter() {
+function handleFilters() {
   const selectedLangs = Array.from(document.querySelectorAll(".language-checkbox:checked")).map(cb => cb.value);
 
   let filteredBooks = [...allBooks];
 
   const searchQuery = getSearchQuery();
+  const authorQuery = getAuthorQuery();
+
   if (searchQuery) {
     filteredBooks = filteredBooks.filter(book =>
       book.title.toLowerCase().includes(searchQuery)
+    );
+  }
+
+  if (authorQuery) {
+    filteredBooks = filteredBooks.filter(book =>
+      book.author?.toLowerCase().includes(authorQuery)
     );
   }
 
@@ -76,26 +89,26 @@ function handleLanguageFilter() {
 
 async function init() {
   allBooks = await getAllBooks();
+
   const searchQuery = getSearchQuery();
+  const authorQuery = getAuthorQuery();
 
   if (searchQuery) {
     document.getElementById("main-title").innerHTML = `
       <h3 class="text-[28px] font-semibold text-[#0f172a]">
         Axtarış nəticələri: "${searchQuery}"
       </h3>`;
+  } else if (authorQuery) {
+
+    document.getElementById("main-title").innerHTML = `
+      <h3 class="text-[28px] font-semibold text-[#0f172a]">
+        Müəllif: "${authorQuery.charAt(0).toUpperCase() + authorQuery.slice(1)}"
+      </h3>`;
   }
 
   renderLanguageFilters();
 
-  let filtered = allBooks;
-
-  if (searchQuery) {
-    filtered = filtered.filter((book) =>
-      book.title.toLowerCase().includes(searchQuery)
-    );
-  }
-
-  renderBooks(filtered);
+  handleFilters();
 }
 
 init();
