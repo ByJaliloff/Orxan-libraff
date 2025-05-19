@@ -1,3 +1,5 @@
+import { getAllBooks, incrementSold } from "./service.js";
+
 const basket = JSON.parse(localStorage.getItem("basket")) || [];
 const basketWrapper = document.getElementById("basket-wrapper");
 const totalAmountSpan = document.getElementById("total-amount");
@@ -7,6 +9,8 @@ const continueBtnMobile = document.getElementById("continue-shopping-mobile");
 const continueBtnDesktop = document.getElementById("continue-shopping-desktop");
 const basketButtons = document.getElementById("basket-buttons"); 
 const basketWrapperMobile = document.getElementById("basket-wrapper-mobile");
+const confirmOrderDesktop = document.getElementById("confirm-order-desktop");
+const confirmOrderMobile = document.getElementById("confirm-order-mobile");
 
 
 function renderBasket() {
@@ -211,5 +215,63 @@ if (continueBtnDesktop) {
     window.location.href = "category.html";
   });
 }
+
+
+confirmOrderDesktop.addEventListener("click", async () => {
+  const books = await getAllBooks();
+
+  for (const item of basket) {
+    const fullBook = books.find((b) => b.id === item.id);
+    if (!fullBook) continue;
+
+    const currentSold = Number(fullBook.sold || 0);
+    const newSold = currentSold + item.count;
+
+    await incrementSold(item.id, newSold, fullBook);
+  }
+
+  localStorage.removeItem("basket");
+  basket.length = 0;
+  renderBasket();
+
+  // ✅ SweetAlert2 modal
+  Swal.fire({
+    title: 'Sifarişiniz qəbul edildi!',
+    text: 'Kitablarınız yolda ✨',
+    icon: 'success',
+    confirmButtonText: 'Bağla',
+    confirmButtonColor: '#ef3340'
+  });
+});
+
+confirmOrderMobile.addEventListener("click", async () => {
+  const books = await getAllBooks();
+
+  for (const item of basket) {
+    const fullBook = books.find((b) => b.id === item.id);
+    if (!fullBook) continue;
+
+    const currentSold = Number(fullBook.sold || 0);
+    const newSold = currentSold + item.count;
+
+    await incrementSold(item.id, newSold, fullBook);
+  }
+
+  localStorage.removeItem("basket");
+  basket.length = 0;
+  renderBasket();
+
+  // ✅ SweetAlert2 modal
+  Swal.fire({
+    title: 'Sifarişiniz qəbul edildi!',
+    text: 'Kitablarınız yolda ✨',
+    icon: 'success',
+    confirmButtonText: 'Bağla',
+    confirmButtonColor: '#ef3340'
+  });
+});
+
+
+
 
 renderBasket();

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Author</title>
+    <title>Bestseller</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" href="img/LibraffLogo.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/LibraffLogo.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
@@ -351,17 +351,18 @@
 
     <script src="js/header.js"></script>
   </header>
-    <div class="max-w-[1500px] mx-auto p-4">
-        <div class="text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
+    <div class="max-w-[1500px] mx-auto px-4">
+        <div class=" text-[14px] text-[#767676] pt-[20px] m-[5px_0_20px] border-t-[1px] border-[#cbd5e1]">
             <span>Əsas səhifə</span>
             <span class="mx-[6px]">/</span>
-            <span>Müəlliflər</span>
+            <span>Ən çox satılan kitablar</span>
         </div>
-        <h1 class="text-[28px] font-bold mb-6 text-left">Müəlliflər</h1>
-        <div id="authors-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 pb-[100px]"></div>
-
-        <script src="js/author.js" type="module"></script>
+        <h2 class="text-[30px] text-[#0f172a]"><span class="text-[#ee2d39] mr-[10px]">Mayın</span>bestsellerləri</h2>
+        <div id="bestseller-container"
+            class="grid gap-2 justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 max-w-[1500px] mx-auto">
+        </div>
     </div>
+    <script src="js/bestseller.js" type="module"></script>
 </body>
 
 </html>

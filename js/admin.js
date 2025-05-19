@@ -36,6 +36,9 @@ function printTable() {
         ${book.pages}
     </td>
     <td class="px-6 py-3 text-gray-300">
+        ${book.sold}
+    </td>
+    <td class="px-6 py-3 text-gray-300">
         ${book.content.slice(0, 40)}...
     </td>
     <td class="px-6 py-3 text-gray-300">
@@ -141,7 +144,8 @@ function getVal() {
         category: categorySec.value,
         subCategory: subCategorySec.value,
         subSubCategory: subSubCategorySec.value,
-        view:0
+        view:0,
+        sold: 0
     }
 
     return book

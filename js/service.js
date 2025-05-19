@@ -69,10 +69,34 @@ async function getAllBooks() {
     }
 }
 
+async function incrementSold(id, newSoldCount, fullBook) {
+  try {
+    const updatedBook = { ...fullBook, sold: newSoldCount };
+
+    const res = await fetch(`https://681da568f74de1d219b078d2.mockapi.io/libraff-data/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedBook),
+    });
+
+    if (!res.ok) {
+      throw new Error(`SOLD artırma zamanı xəta baş verdi. Status: ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+
 
  export{
     getAllBooks,
     deleteBookById,
     createBook,
-    editBook
+    editBook,
+    incrementSold
  }
